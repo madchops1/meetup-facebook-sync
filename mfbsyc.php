@@ -84,7 +84,6 @@ class mfbsync {
     }
     
     // -- Step 2, Get access token from user
-
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/oauth/access_token?'.
                                   'client_id='.$this->facebook_consumer_key.
@@ -96,6 +95,7 @@ class mfbsync {
     //execute the request
     $return = curl_exec($ch);
     curl_close($ch);
+    echo $return;
     $facebook_response = json_decode($return);
     if(isset($facebook_response->error)){
       //if($facebook_response->error->code == '100'){
