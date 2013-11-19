@@ -95,14 +95,24 @@ class mfbsync {
     //execute the request
     $return = curl_exec($ch);
     curl_close($ch);
-    echo $return;
-    $facebook_response = json_decode($return);
+    
+    
+    if(strstr($return, "access_token")){
+      //access_token=CAAIXbxtbP2MBAC1onnRNZC9kBJfCkSeZATvZCd61cK7a9ewIycZB1bE5ZBE85WPPPfdFnwglwoAKFuYKcBAU1OMa3fYi6o7lmeKW7UUZBF4zN4jIzuNpZAjJtJHeYT6eZCyLa0KJ9N0ZCooiUxoHrIQiYEoY4g5VCkIuLr18tSSl8iI8uObQnZAfZB1&expires=5183268
+      $returnArray = explode("&",$return);
+      $tokenArray = explode("=",$returnArray[0]);
+      $_SESSION['facebook_access_token'] = $tokenArray[1];
+      //$_SESSION['facebook_expires'] = $tokenArray
+    } else {
+      $facebook_response = json_decode($return);
+    }
+    
     if(isset($facebook_response->error)){
       //if($facebook_response->error->code == '100'){
         // -- The fb auth code is expired set the session to false and restart
         $_SESSION['facebook_auth'] = FALSE;
-        //header("LOCATION: index.php");
-        //die;
+        header("LOCATION: /");
+        die;
       //}
     }
     
