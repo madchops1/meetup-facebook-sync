@@ -1,4 +1,4 @@
 <?php
-include 'mfbsync.php';
+include 'mfbsyc.php';
 $mfbsync = new mfbsync;
 ?>
