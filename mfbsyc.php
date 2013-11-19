@@ -106,7 +106,7 @@ class mfbsync {
       }
     }
     
-    echo "<pre>";
+    echo "FB RES:<pre>";
     var_dump($facebook_response);
     echo "</pre>";
     die();
@@ -125,7 +125,7 @@ class mfbsync {
    * Finish up
    */
   function finish_up(){
-    var_dump($_REQUEST);
+    //var_dump($_REQUEST);
     echo "Done!";
   }
   
