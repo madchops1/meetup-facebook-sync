@@ -31,6 +31,8 @@ class mfbsync {
    */
   function meetup_auth(){
     
+  
+    
     if($_REQUEST['code'] != '' && $_REQUEST['state'] != ''){
       $_SESSION['meetup_auth'] = TRUE;
     }
