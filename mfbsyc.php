@@ -127,8 +127,14 @@ class mfbsync {
   function finish_up(){
     
     echo "<br><br><br><pre>";
+    var_dump($_SESSION);
+    echo "</pre>";
+    
+    echo "<br><br><br><pre>";
     var_dump($this);
     echo "</pre>";
+    
+    
     
     //var_dump($_REQUEST);
     //echo "Done!";
