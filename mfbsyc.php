@@ -101,7 +101,7 @@ class mfbsync {
       if($facebook_response->error->code == '100'){
         // -- The fb auth code is expired set the session to false and restart
         $_SESSION['facebook_auth'] = FALSE;
-        //header("LOCATION: index.php");
+        header("LOCATION: index.php");
         //die;
       }
     }
@@ -109,7 +109,7 @@ class mfbsync {
     echo "FB RES:<pre>";
     var_dump($facebook_response);
     echo "</pre>";
-    die();
+    //die();
     // If code is expired then get a new code
     //if($)
     //die;
@@ -125,8 +125,13 @@ class mfbsync {
    * Finish up
    */
   function finish_up(){
+    
+    echo "<br><br><br><pre>";
+    var_dump($this);
+    echo "</pre>";
+    
     //var_dump($_REQUEST);
-    echo "Done!";
+    //echo "Done!";
   }
   
 }
