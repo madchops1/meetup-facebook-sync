@@ -88,7 +88,7 @@ class mfbsync {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/oauth/access_token?'.
                                   'client_id='.$this->facebook_consumer_key.
-                                  '&redirect_uri='.$this->facebook_redirect_uri.
+                                  '&redirect_uri='.urlencode($this->facebook_redirect_uri).
                                   '&client_secret='.$this->facebook_consumer_secret.
                                   '&code='.$_SESSION['facebook_auth_code']);
                                
@@ -101,12 +101,14 @@ class mfbsync {
       if($facebook_response->error->code == '100'){
         // -- The fb auth code is expired set the session to false and restart
         $_SESSION['facebook_auth'] = FALSE;
-        //header("LOCATION: index.php");
-        //die;
+        header("LOCATION: index.php");
+        die;
       }
     }
     
+    echo "<pre>";
     var_dump($facebook_response);
+    echo "</pre>";
     die();
     // If code is expired then get a new code
     //if($)
