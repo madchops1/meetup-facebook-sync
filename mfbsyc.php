@@ -15,7 +15,7 @@ class mfbsync {
   var $meetup_consumer_key       = "drdhpm0c4l1haeem1evkcdk2h5";
   var $meetup_consumer_secret    = "r0jqlpdk6hdqsspb17iq7iftt"; 
   
-  var $facebook_redirect_uri     = "http://mfbsync.karlsteltenpohl.com";
+  var $facebook_redirect_uri     = "http://mfbsync.karlsteltenpohl.com/";
   var $facebook_consumer_key     = "588715921194851";
   var $facebook_consumer_secret  = "5509ae4d80411edb07787535d55e144f";
   
