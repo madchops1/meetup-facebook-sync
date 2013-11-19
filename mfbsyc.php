@@ -37,7 +37,7 @@ class mfbsync {
     
     // -- Step 1
     if($_SESSION['meetup_auth'] == FALSE) {
-      header("LOCATION: https://secure.meetup.com/oauth2/authorize?client_id=drdhpm0c4l1haeem1evkcdk2h5&response_type=code&redirect_uri=http://mfbsync.karlsteltenpohl.com/meetup_redirect.php");
+      header("LOCATION: https://secure.meetup.com/oauth2/authorize?client_id=drdhpm0c4l1haeem1evkcdk2h5&response_type=code&redirect_uri=http://mfbsync.karlsteltenpohl.com/meetup-redirect.php");
       exit;
     }
     
