@@ -80,7 +80,7 @@ class mfbsync {
     
     // -- Step 1, Direct User to Facebook for Authentication
     if($_SESSION['facebook_auth'] == FALSE){
-      header("LOCATION: https://www.facebook.com/dialog/oauth?client_id=".$this->facebook_consumer_key."&scope=user_groups&redirect_uri=".$this->facebook_redirect_uri);
+      header("LOCATION: https://www.facebook.com/dialog/oauth?client_id=".$this->facebook_consumer_key."&scope=user_groups&redirect_uri=".urlencode($this->facebook_redirect_uri));
     }
     
     // -- Step 2, Get access token from user
