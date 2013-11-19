@@ -21,8 +21,8 @@ class mfbsync {
     // -- SESSION setup
     if (!isset($_SESSION['meetup_auth'])) { $_SESSION['meetup_auth'] = FALSE; }
     
-    meetup_auth();
-    finish_up();
+    $this->meetup_auth();
+    $this->finish_up();
     
   }  
   
