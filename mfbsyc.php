@@ -106,7 +106,7 @@ class mfbsync {
       }
     }
     
-    var_dump($json_response);
+    var_dump($facebook_response);
     die();
     // If code is expired then get a new code
     //if($)
