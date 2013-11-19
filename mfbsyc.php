@@ -103,7 +103,7 @@ class mfbsync {
         $_SESSION['facebook_auth'] = FALSE;
         //header("LOCATION: index.php");
         //die;
-      }
+      //}
     }
     
     //echo "FB RES:<pre>";
