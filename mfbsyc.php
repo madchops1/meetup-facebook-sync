@@ -96,7 +96,6 @@ class mfbsync {
     $return = curl_exec($ch);
     curl_close($ch);
     
-    
     if(strstr($return, "access_token")){
       //access_token=CAAIXbxtbP2MBAC1onnRNZC9kBJfCkSeZATvZCd61cK7a9ewIycZB1bE5ZBE85WPPPfdFnwglwoAKFuYKcBAU1OMa3fYi6o7lmeKW7UUZBF4zN4jIzuNpZAjJtJHeYT6eZCyLa0KJ9N0ZCooiUxoHrIQiYEoY4g5VCkIuLr18tSSl8iI8uObQnZAfZB1&expires=5183268
       $returnArray = explode("&",$return);
@@ -107,10 +106,12 @@ class mfbsync {
       $facebook_response = json_decode($return);
     }
     
+    // If Error
     if(isset($facebook_response->error)){
       //if($facebook_response->error->code == '100'){
         // -- The fb auth code is expired set the session to false and restart
         $_SESSION['facebook_auth'] = FALSE;
+        $_SESSION['facebook_auth_code'] = "";
         //header("LOCATION: /");
         //die;
       //}
@@ -123,8 +124,6 @@ class mfbsync {
     // If code is expired then get a new code
     //if($)
     //die;
-    
-    
     
     // -- Step 3, Get access token from page
     
