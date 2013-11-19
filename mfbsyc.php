@@ -80,7 +80,7 @@ class mfbsync {
     
     // -- Step 1, Direct User to Facebook for Authentication
     if($_SESSION['facebook_auth'] == FALSE){
-      header("LOCATION: https://www.facebook.com/dialog/oauth?client_id=".$this->facebook_consumer_key."&scope=user_groups&redirect_uri=".urlencode($this->facebook_redirect_uri));
+      header("LOCATION: https://www.facebook.com/dialog/oauth?client_id=".$this->facebook_consumer_key."&scope=manage_pages&redirect_uri=".urlencode($this->facebook_redirect_uri));
     }
     
     // -- Step 2, Get access token from user
@@ -98,7 +98,7 @@ class mfbsync {
     curl_close($ch);
     $facebook_response = json_decode($return);
     if(isset($facebook_response->error)){
-      if($facebook_response->error->code == '100'){
+      //if($facebook_response->error->code == '100'){
         // -- The fb auth code is expired set the session to false and restart
         $_SESSION['facebook_auth'] = FALSE;
         //header("LOCATION: index.php");
@@ -106,9 +106,9 @@ class mfbsync {
       }
     }
     
-    echo "FB RES:<pre>";
-    var_dump($facebook_response);
-    echo "</pre>";
+    //echo "FB RES:<pre>";
+    //var_dump($facebook_response);
+    //echo "</pre>";
     //die();
     // If code is expired then get a new code
     //if($)
