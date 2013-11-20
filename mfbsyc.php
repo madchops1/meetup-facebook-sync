@@ -77,6 +77,9 @@ class mfbsync {
         $_SESSION['meetup_refresh_token'] = $meetup_response->refresh_token;
         $_SESSION['meetup_access_token'] = $meetup_response->access_token;
       } else {
+        echo "<pre>";
+        var_dump($meetup_response);
+        echo "</pre>";
         die("Meetup Error Please Try Again.");
       }
     //}
