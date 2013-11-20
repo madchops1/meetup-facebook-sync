@@ -78,7 +78,7 @@ if(strstr($return, "access_token")){
       //$datetime = DateTime::createFromFormat('Y-m-d', $date);
       //$formatdate = $datetime->format('dd/mm/YY');
       //echo $datetime->format('Y-m-d');
-      $formatdate = date("dd/mm/YY", strtotime($date));
+      $formatdate = date("d/m/Y", strtotime($date));
       
       //dd "/" M "/" YY : HH ":" II ":" SS space tzcorrection
       //"10/Oct/2000:13:55:36 -0700"
