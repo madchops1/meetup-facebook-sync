@@ -46,15 +46,17 @@ if(strstr($return, "access_token")){
   
   // -- Success, format events
   foreach($_SESSION['fb_events'] AS $facebook_event){
-    $_SESSION['formatted_fb_events'][]->title = $facebook_event->title;
+    $_SESSION['formatted_fb_events'][]->title = $facebook_event->name;
     $_SESSION['formatted_fb_events'][]->start = $facebook_event->start_time;
     $_SESSION['formatted_fb_events'][]->location = $facebook_event->location;
+    $_SESSION['formatted_fb_events'][]->description = '';
   }
   
   foreach($_SESSION['meetups'] as $meetup_event){
     $_SESSION['formatted_meetups'][]->title = $meetup_event->name;
-    $_SESSION['formatted_meetups'][]->start = $meetup_event->start_time;
+    $_SESSION['formatted_meetups'][]->start = date("m/d/Y",$meetup_event->time);
     $_SESSION['formatted_meetups'][]->location = $meetup_event->venue->name;
+    $_SESSION['formatted_meetups'][]->description = '';
   }
   
   
@@ -69,6 +71,41 @@ if(strstr($return, "access_token")){
   echo "</pre></td><td><pre>";
   var_dump($_SESSION['formatted_meetups']);
   echo "</pre></td></tr></table>";
+  
+  echo "<br><pre>";
+  var_dump($_SESSION['meetup_group_object']);
+  echo "</pre>";
+  die();
+  
+  
+  // Loop the Facebook events and add them to meetup if necessary
+  foreach($formatted_fb_events as $facebook_event){
+    foreach($formatted_mu_events as $meetup_event){
+      $fb_event_synced = 0;
+      if($meetup_event->title == $facebook_event->title){
+        $fb_event_synced = 1;
+      }
+    }
+    // -- If the fb event doesn't exist in meetup
+    if($fb_event_synced == 0){
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.coms');
+      curl_setopt($ch, CURLOPT_POSTFIELDS, 'group_id='.$_SESSION['meetup_id'].''.
+                                           '&group_url_name='.$_SESSION['meetup_name'].''.
+                                           '&name='.$facebook_event->title.''.
+                                           '&access_token='.$_SESSION['meetup_token']);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      $return = curl_exec($ch);
+      curl_close($ch);
+    }
+  } 
+  
+  // Loop the Meetup events and add them to Facebook if necessary
+  foreach($formatted_mu_events as $meetup_event){
+    foreach($formatted_fb_events as $facebook_event){
+      
+    }
+  }
   
 } else {
   $facebook_response = json_decode($return);

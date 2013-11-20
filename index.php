@@ -3,10 +3,11 @@ session_start();
 
 // -- Clear Vars
 $_SESSION['meetup_name']     = '';
+$_SESSION['meetup_id']     = '';
 $_SESSION['fb_page_id']      = '';
 $_SESSION['meetups']         = array();
 $_SESSION['fb_events']       = array();
-
+$_SESSION['meetup_token']    = '';
 
 // -- Form Action
 if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){

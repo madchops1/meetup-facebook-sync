@@ -18,6 +18,27 @@ $meetup_response = json_decode($return);
 // -- Successfull response...
 if(isset($meetup_response->token_type) && $meetup_response->token_type == "bearer"){
   
+  // -- Save the meetup access token in a session
+  $_SESSION['meetup_token'] = $meetup_response->access_token;
+  
+  // -- Get the Meetup Group's Details
+  // -- Get the Meetups Events
+  //init curl
+  $ch = curl_init();
+  //Set the URL to work with
+  curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com/2/groups?group_urlname='.$_SESSION['meetup_name'].'&access_token='.$meetup_response->access_token.'');
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  $return = curl_exec($ch);
+  curl_close($ch);
+  $return = json_decode($return);
+  
+  // -- Loop the results and put into array
+  if(isset($return->results)){
+    foreach($return->results as $result){
+      $_SESSION['meetup_group_object'] = $result;
+    }
+  }
+  
   // -- Get the Meetups Events
   //init curl
   $ch = curl_init();
