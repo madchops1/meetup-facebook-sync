@@ -2,8 +2,8 @@
 session_start();
 
 // -- Clear Vars
+$_SESSION['meetup_group_object']   = new stdClass();
 $_SESSION['meetup_name']           = '';
-$_SESSION['meetup_id']             = '';
 $_SESSION['fb_page_id']            = '';
 $_SESSION['meetups']               = array();
 $_SESSION['fb_events']             = array();

@@ -77,7 +77,7 @@ if(strstr($return, "access_token")){
   //echo "</pre>";
   //die();
   
-  
+  $synced_facebook_events=0;
   // Loop the Facebook events and add them to meetup if necessary
   foreach($formatted_fb_events as $facebook_event){
     foreach($formatted_mu_events as $meetup_event){
@@ -88,24 +88,38 @@ if(strstr($return, "access_token")){
     }
     // -- If the fb event doesn't exist in meetup
     if($fb_event_synced == 0){
+      $synced_facebook_events++;
       $ch = curl_init();
-      curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.coms');
-      curl_setopt($ch, CURLOPT_POSTFIELDS, 'group_id='.$_SESSION['meetup_id'].''.
+      curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com');
+      curl_setopt($ch, CURLOPT_POSTFIELDS, 'group_id='.$_SESSION['meetup_group_object']->id.''.
                                            '&group_url_name='.$_SESSION['meetup_name'].''.
                                            '&name='.$facebook_event->title.''.
+                                           '&time='.strtotime($facebook_event->start).''.
                                            '&access_token='.$_SESSION['meetup_token']);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       $return = curl_exec($ch);
       curl_close($ch);
+      
+      echo "<br><br>Synced Facebook Event To Meetup:<br><pre>";
+      var_dump($return);
+      echo "</pre>";
+      
     }
   } 
   
+  /*
   // Loop the Meetup events and add them to Facebook if necessary
   foreach($formatted_mu_events as $meetup_event){
     foreach($formatted_fb_events as $facebook_event){
       
     }
   }
+  */
+  
+  // -- Debriefing
+  echo "<br><br>DEBRIEF:<br>";
+  echo $synced_facebook_events . " facebook events synced to meetup.<br>";
+  echo $synced_meetup_events . " meetup events synced to facebook.<br>";
   
 } else {
   $facebook_response = json_decode($return);
@@ -114,6 +128,8 @@ if(strstr($return, "access_token")){
     die("<br>**FACEBOOK ERROR**<br>");
   }
 }
+
+
 
 
 
