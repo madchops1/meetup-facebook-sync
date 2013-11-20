@@ -9,7 +9,7 @@ $_SESSION['fb_events']       = array();
 
 
 // -- Form Action
-if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_name']){
+if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
   
   $_SESSION['meetup_name'] = $_REQUEST['meetup_name'];
   $_SESSION['fb_page_id'] = $_REQUEST['fb_page_id'];
