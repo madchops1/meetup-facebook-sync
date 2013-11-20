@@ -31,18 +31,17 @@ if(isset($meetup_response->token_type) && $meetup_response->token_type == "beare
   curl_close($ch);
   $return = json_decode($return);
   
-  echo "<br>";
-  echo "<pre>";
-  var_dump($return);
-  echo "</pre>";
-  //echo "<pre>";
+  // -- Loop the results and put into array
+  if(isset($return->results)){
+    foreach($return->results as $result){
+      $_SESSION['meetups'][] = $result;
+    }
+  }
   
 } else {
  
-  echo "<br><br>**MEETUP ERROR**<br>";
+  die("<br>**MEETUP ERROR**<br>");
   
-  //die("Meetup Error Please Try Again.");
-
 }
 
 //include 'mfbsyc.php';
