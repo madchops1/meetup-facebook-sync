@@ -19,16 +19,25 @@ class mfbsync {
   var $facebook_consumer_key     = "588715921194851";
   var $facebook_consumer_secret  = "5509ae4d80411edb07787535d55e144f";
   
+  var $meetup_events = array();
+  var $facebook_events = array();
+  
   /**
    * Constructor // Init...
    */
   function __construct(){
     
-    // -- SESSION setup
+    // -- SESSION Setup
     if (!isset($_SESSION['meetup_auth'])) { $_SESSION['meetup_auth'] = FALSE; }
-    
+    if (!isset($_SESSION['facebook_auth'])) { $_SESSION['facebook_auth'] = FALSE; }
+      
     $this->meetup_auth();
     $this->facebook_auth();
+    
+    $this->getMeetupEvents();
+    $this->getFacebookEvents();
+    $this->syncEvents();
+    
     $this->finish_up();
     
   }  
@@ -70,6 +79,9 @@ class mfbsync {
     }
   }
   
+  /**
+   * Facebook Auth Function
+   */
   function facebook_auth(){
     
     // -- Set Response from Step 1, save code
@@ -97,7 +109,6 @@ class mfbsync {
     curl_close($ch);
     
     if(strstr($return, "access_token")){
-      //access_token=CAAIXbxtbP2MBAC1onnRNZC9kBJfCkSeZATvZCd61cK7a9ewIycZB1bE5ZBE85WPPPfdFnwglwoAKFuYKcBAU1OMa3fYi6o7lmeKW7UUZBF4zN4jIzuNpZAjJtJHeYT6eZCyLa0KJ9N0ZCooiUxoHrIQiYEoY4g5VCkIuLr18tSSl8iI8uObQnZAfZB1&expires=5183268
       $returnArray = explode("&",$return);
       $tokenArray = explode("=",$returnArray[0]);
       $_SESSION['facebook_access_token'] = $tokenArray[1];
@@ -108,14 +119,13 @@ class mfbsync {
     
     // If Error
     if(isset($facebook_response->error)){
-      //if($facebook_response->error->code == '100'){
-        // -- The fb auth code is expired set the session to false and restart
-        $_SESSION['facebook_auth'] = FALSE;
-        $_SESSION['facebook_auth_code'] = "";
-        //header("LOCATION: /");
-        //die;
-      //}
+      $_SESSION['facebook_auth'] = FALSE;
+      $_SESSION['facebook_auth_code'] = "";
+      die("Error Please Try Again..."); // -kjs sometimes we get an error here...
     }
+    
+    // 
+    
     
     //echo "FB RES:<pre>";
     //var_dump($facebook_response);
@@ -129,6 +139,60 @@ class mfbsync {
     
     
   }
+  
+  /**
+   * Get Meetup Events
+   */
+  function get_meetup_events(){
+    
+    
+    echo "Enter Meetup Url Name:";
+    echo "<form><input type='text' name='meetup-group-name' /> <input type='submit' value='Submit' /></form>";
+    
+    /*
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com/2/events?'.
+                                  'group_url_name='.$token.'&limit=5000');
+    
+    
+    // ENABLE HTTP POST
+    //curl_setopt($ch, CURLOPT_POST, 1);
+    // FOllOW REDIRECTS
+    //curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    // Set the post parameters
+    //curl_setopt($ch, CURLOPT_POSTFIELDS, 'client_id='.$this->instagramClientId.'&client_secret='.$this->instagramClientSecret.'&grant_type=authorization_code&redirect_uri='.$redirectURI.'&code='.$code.'');
+    //Setting CURLOPT_RETURNTRANSFER variable to 1 will force cURL
+    //not to print out the results of its query.
+    //Instead, it will return the results as a string return value
+    //from curl_exec() instead of the usual true/false.
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    //execute the request
+    $return = curl_exec($ch);
+    curl_close($ch);
+    
+    //echo "<pre>";
+    //var_dump($return);
+    //echo "</pre>";
+    
+    // decode return;
+    $return = json_decode($return);
+    echo "<br><br><br>";
+    //echo $return;
+    */
+           
+  }
+  
+  /**
+   * Fet Facebook Events
+   */
+  function get_facebook_events(){
+    
+  }
+  
+  function sync_events(){
+    
+  }
+  
   
   /**
    * Finish up
