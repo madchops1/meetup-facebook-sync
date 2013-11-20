@@ -219,7 +219,7 @@ if(strstr($return, "access_token")){
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/'.$_SESSION['fb_page_id'].'/events');
       curl_setopt($ch, CURLOPT_POST, 1);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, 'name='.$meetup_event->title.''.
+      curl_setopt($ch, CURLOPT_POSTFIELDS, 'name='.$meetup_event->title . ' @ ' . $meetup_event->location . ''.
                                            '&start_time='.$meetup_event->start.''.
                                            '&description='.$meetup_event->description.''.
                                            '&location='.$meetup_event->location.''.
@@ -228,8 +228,8 @@ if(strstr($return, "access_token")){
       $return = curl_exec($ch);
       curl_close($ch);
       
-      echo "<br>RETURN:<br>";
-      var_dump($return);
+      //echo "<br>RETURN:<br>";
+      //var_dump($return);
       
     }
   }
