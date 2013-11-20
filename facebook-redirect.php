@@ -238,8 +238,7 @@ if(strstr($return, "access_token")){
   
   
   // -- Debriefing
-  echo "<br><br>DEBRIEF:<br>";
-  echo "SUCCESS!<br>";
+  echo "<br><Br>SUCCESS!<br>";
   echo $synced_facebook_events . " facebook events synced to meetup.<br>";
   echo $synced_meetup_events . " meetup events synced to facebook.<br>";
  
