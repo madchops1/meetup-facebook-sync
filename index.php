@@ -31,8 +31,8 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
   
   </head>
   <body>
-  
-    <div style='margin:0px auto; width:300px; margin-top:200px; background:#gray;'>
+    <h1>Meetup.com <=> Facebook Event Sync</h1>
+    <div style='margin:0px auto; width:500px; margin-top:200px; background:#f5f5f5; padding:20px; font-size:10px;'>
       <form>
         
         <div>
