@@ -63,6 +63,9 @@ if(strstr($return, "access_token")){
     // -- Start Time Processing
     // If there is a time in the facebook time
     if(strstr($facebook_event->start_time,"T")){
+      
+      die($facebook_event->start_time);
+      
       $date_time_array = explode("T",$facebook_event->start_time);
       $date = $date_time_array[0];
       $time = $date_time_array[1];
