@@ -90,20 +90,20 @@ if(strstr($return, "access_token")){
     if($fb_event_synced == 0){
       $synced_facebook_events++;
       $ch = curl_init();
-      curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com');
+      curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com/2/event');
       curl_setopt($ch, CURLOPT_POST, 1);
       curl_setopt($ch, CURLOPT_POSTFIELDS, 'group_id='.$_SESSION['meetup_group_object']->id.''.
                                            '&group_urlname='.$_SESSION['meetup_name'].''.
                                            '&name='.urlencode($facebook_event->title).''.
                                            '&time='.strtotime($facebook_event->start).''.
                                            '&access_token='.$_SESSION['meetup_token']);
-      //curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       $return = curl_exec($ch);
       //var_dump($return);
       
       
       echo "<br><br><div style='border:5px solid red; display:block; clear:both;'>Synced Facebook Event To Meetup:<br><pre>";
-      echo                                 'https://api.meetup.com?group_id='.$_SESSION['meetup_group_object']->id.''.
+      echo                                 'https://api.meetup.com/2/event?group_id='.$_SESSION['meetup_group_object']->id.''.
                                            '&group_urlname='.$_SESSION['meetup_name'].''.
                                            '&name='.urlencode($facebook_event->title).''.
                                            '&time='.strtotime($facebook_event->start).''.
