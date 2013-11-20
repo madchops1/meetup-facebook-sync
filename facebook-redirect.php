@@ -91,12 +91,13 @@ if(strstr($return, "access_token")){
       $synced_facebook_events++;
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com');
+      curl_setopt($ch, CURLOPT_POST, TRUE);
       curl_setopt($ch, CURLOPT_POSTFIELDS, 'group_id='.$_SESSION['meetup_group_object']->id.''.
                                            '&group_urlname='.$_SESSION['meetup_name'].''.
                                            '&name='.urlencode($facebook_event->title).''.
                                            '&time='.strtotime($facebook_event->start).''.
                                            '&access_token='.$_SESSION['meetup_token']);
-      //curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       $return = curl_exec($ch);
       curl_close($ch);
       
