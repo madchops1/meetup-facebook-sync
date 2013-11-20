@@ -96,9 +96,9 @@ if(strstr($return, "access_token")){
       $return = curl_exec($ch);
       curl_close($ch);
       
-      echo "<br><br>Synced Facebook Event To Meetup:<br><pre>";
-      var_dump($return);
-      echo "</pre>";
+      //echo "<br><br>Synced Facebook Event To Meetup:<br><pre>";
+      //var_dump($return);
+      //echo "</pre>";
       
     }
   } 
