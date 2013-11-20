@@ -88,7 +88,7 @@ if(strstr($return, "access_token")){
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com');
       curl_setopt($ch, CURLOPT_POSTFIELDS, 'group_id='.$_SESSION['meetup_group_object']->id.''.
-                                           '&group_url_name='.$_SESSION['meetup_name'].''.
+                                           '&group_urlname='.$_SESSION['meetup_name'].''.
                                            '&name='.$facebook_event->title.''.
                                            '&time='.strtotime($facebook_event->start).''.
                                            '&access_token='.$_SESSION['meetup_token']);
@@ -102,6 +102,8 @@ if(strstr($return, "access_token")){
       
     }
   } 
+  
+  $synced_meetup_events=0;
   
   /*
   // Loop the Meetup events and add them to Facebook if necessary
