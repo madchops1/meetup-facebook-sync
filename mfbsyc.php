@@ -49,6 +49,7 @@ class mfbsync {
     //if(!isset($_SESSION['meetup_access_token'])){
       // -- Set Response from Step 1, save code
       if($_REQUEST['code'] != '' && $_SESSION['meetup_auth'] == FALSE){
+        die($_SERVER['referer']);
         $_SESSION['meetup_auth'] = TRUE;
         $_SESSION['meetup_auth_code'] = $_REQUEST['code'];
       }
