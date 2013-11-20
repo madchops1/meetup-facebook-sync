@@ -35,56 +35,7 @@ class mfbsync {
     //$this->finish_up();
     
   }  
-  
-  /**
-   * Meetup Auth Function
-   */
-  function meetup_auth(){
-    //if(!isset($_SESSION['meetup_access_token'])){
-      // -- Set Response from Step 1, save code
-      if($_REQUEST['code'] != '' && $_SESSION['meetup_auth'] == FALSE && $_SESSION['facebook_auth'] == FALSE){
-        //var_dump($_SERVER);
-        
-        $_SESSION['meetup_auth'] = TRUE;
-        $_SESSION['meetup_auth_code'] = $_REQUEST['code'];
-      }
-      
-      // -- Step 1, Direct User to Meetup for authentication
-      if($_SESSION['meetup_auth'] == FALSE) {
-        header("LOCATION: https://secure.meetup.com/oauth2/authorize?client_id=".$this->meetup_consumer_key."&response_type=code&redirect_uri=".$this->meetup_redirect_uri."");
-        exit;
-      }
-      
-      // -- Step 2, Get access token from meetup
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_URL, 'https://secure.meetup.com/oauth2/access');
-      curl_setopt($ch, CURLOPT_POSTFIELDS, 'client_id='.$this->meetup_consumer_key.
-                                           '&client_secret='.$this->meetup_consumer_secret.
-                                           '&grant_type=authorization_code'.
-                                           '&redirect_uri='.$this->meetup_redirect_uri.
-                                           '&code='.$_SESSION['meetup_auth_code'].'');
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-      $return = curl_exec($ch);
-      curl_close($ch);
-      
-      $meetup_response = json_decode($return);
-      // -- Successfull response...
-      if(isset($meetup_response->token_type) && $meetup_response->token_type == "bearer"){
-        $_SESSION['meetup_refresh_token'] = $meetup_response->refresh_token;
-        $_SESSION['meetup_access_token'] = $meetup_response->access_token;
-      } else {
-        $_SESSION['meetup_auth'] = FALSE;
-        unset($_SESSION['meetup_auth_code']);
-        
-        echo "<br><br>**MEETUP ERROR**<br>";
-        echo "<pre>";
-        var_dump($meetup_response);
-        echo "</pre>";
-        //die("Meetup Error Please Try Again.");
-        
-      }
-    //}
-  }
+ 
   
   /**
    * Facebook Auth Function
