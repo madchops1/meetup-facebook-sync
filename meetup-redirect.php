@@ -32,7 +32,9 @@ if(isset($meetup_response->token_type) && $meetup_response->token_type == "beare
   $return = json_decode($return);
   
   echo "<br>";
+  echo "<pre>";
   var_dump($return);
+  echo "</pre>";
   //echo "<pre>";
   
 } else {
