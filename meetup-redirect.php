@@ -17,8 +17,8 @@ $meetup_response = json_decode($return);
 
 // -- Successfull response...
 if(isset($meetup_response->token_type) && $meetup_response->token_type == "bearer"){
-  echo "<br>".$meetup_response->refresh_token;
-  echo "<br>".$meetup_response->access_token;
+  //echo "<br>".$meetup_response->refresh_token;
+  //echo "<br>".$meetup_response->access_token;
   
   // -- Get the Pages Events
   // Get All the users Photos
@@ -38,14 +38,17 @@ if(isset($meetup_response->token_type) && $meetup_response->token_type == "beare
     }
   }
   
-} else {
+  // -- Go to facebook now
+  header("LOCATION: https://www.facebook.com/dialog/oauth?client_id=588715921194851&scope=manage_pages&redirect_uri=http://mfbsync.karlsteltenpohl.com/facebook-redirect.php");
+  die;
+} 
+
+// -- error
+else {
  
   die("<br>**MEETUP ERROR**<br>");
   
 }
-
-//include 'mfbsyc.php';
-//$mfbsync = new mfbsync;
 
 
 
