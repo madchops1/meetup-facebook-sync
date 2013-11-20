@@ -113,10 +113,9 @@ if(strstr($return, "access_token")){
     // -- Process Time
     //Date-only (e.g., '2012-07-04'): events that have a date but no specific time yet.
     //Precise-time (e.g., '2012-07-04T19:00:00-0700'): events that start at a particular point in time, in a specific offset from UTC. This is the way new Facebook events keep track of time, and allows users to view events in different timezones.
-    $meetup_event->time = date("Y-m-dXXXXh:i:s",($meetup_event->time/1000));
+    $meetup_event->time = date("Y-m-dXXXXh:i:s",($meetup_event->time/1000))."-0600";
     $meetup_event->time = str_replace("XXXX","T",$meetup_event->time);
     $_SESSION['formatted_meetups'][$i]->start = $meetup_event->time;
-    
     $_SESSION['formatted_meetups'][$i]->location = $meetup_event->venue->name;
     $_SESSION['formatted_meetups'][$i]->description = '';
     $i++;
@@ -175,7 +174,7 @@ if(strstr($return, "access_token")){
           }
         }
       }
-      /*
+      
       // -- POST FB EVENT to Meetup
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com/2/event');
@@ -189,7 +188,7 @@ if(strstr($return, "access_token")){
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       $return = curl_exec($ch);
       curl_close($ch);
-      */
+      
     }
   } 
   
