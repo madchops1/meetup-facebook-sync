@@ -31,7 +31,9 @@ if(strstr($return, "access_token")){
   curl_close($ch);
   $return = json_decode($return);
   
+  echo "<pre>";
   var_dump($return);
+  echo "</pre>";
   die();
   
   // -- Loop the results and put into array
