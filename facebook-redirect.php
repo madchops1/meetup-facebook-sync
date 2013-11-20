@@ -63,7 +63,7 @@ if(strstr($return, "access_token")){
     // -- Start Time Processing
     // If there is a time in the facebook time
     if(strstr($facebook_event->start_time,"T")){
-      $date_time_array = explode("T",$facebook_event->start);
+      $date_time_array = explode("T",$facebook_event->start_time);
       $date = $date_time_array[0];
       $time = $date_time_array[1];
       $zone = substr($time, -5);
@@ -86,7 +86,7 @@ if(strstr($return, "access_token")){
     else {
       //$datetime = DateTime::createFromFormat('Y-m-d', $date);
       //$formatdate = $datetime->format('YY/mm/dd');
-      $new_time = round(strtotime($formatdate) * 1000);
+      $new_time = round(strtotime($facebook_event->start_time) * 1000);
     }
     
     $_SESSION['formatted_fb_events'][$i]->start = $new_time;
@@ -173,7 +173,7 @@ if(strstr($return, "access_token")){
         $return = curl_exec($ch);
       }*/
       
-      
+      /*
       // -- POST FB EVENT to Meetup
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com/2/event');
@@ -186,7 +186,7 @@ if(strstr($return, "access_token")){
                                            '&access_token='.$_SESSION['meetup_token']);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       $return = curl_exec($ch);
-      
+      */
       
       echo "<br><br><div style='border:5px solid red; display:block; clear:both;'>Synced Facebook Event To Meetup:<br><pre>";
       echo                                 'https://api.meetup.com/2/event?group_id='.$_SESSION['meetup_group_object']->id.''.
