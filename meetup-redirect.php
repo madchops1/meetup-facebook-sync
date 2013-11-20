@@ -17,11 +17,8 @@ $meetup_response = json_decode($return);
 
 // -- Successfull response...
 if(isset($meetup_response->token_type) && $meetup_response->token_type == "bearer"){
-  //echo "<br>".$meetup_response->refresh_token;
-  //echo "<br>".$meetup_response->access_token;
   
-  // -- Get the Pages Events
-  // Get All the users Photos
+  // -- Get the Meetups Events
   //init curl
   $ch = curl_init();
   //Set the URL to work with
