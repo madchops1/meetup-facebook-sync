@@ -228,6 +228,9 @@ if(strstr($return, "access_token")){
       $return = curl_exec($ch);
       curl_close($ch);
       
+      echo "<br><br>";
+      var_dump($return);
+      
     }
   }
   
