@@ -69,10 +69,13 @@ if(strstr($return, "access_token")){
       $zone = substr($time, -5);
       $time = substr($time, 8);
       
-      $datetime = DateTime::createFromFormat('Y-m-d', $date);
-      $formatdate = $datetime->format('dd/mm/YY');
+      
+      // -- Y-m-d => d/m/Y
+      //$datetime = DateTime::createFromFormat('Y-m-d', $date);
+      //$formatdate = $datetime->format('dd/mm/YY');
       //echo $datetime->format('Y-m-d');
-    
+      $formatdate = date("dd/mm/YY", strtotime($date));
+      
       //dd "/" M "/" YY : HH ":" II ":" SS space tzcorrection
       //"10/Oct/2000:13:55:36 -0700"
       $new_time = round(strtotime( $formatdate . ":" . $time . " " . $zone . "") * 1000);
@@ -81,8 +84,8 @@ if(strstr($return, "access_token")){
     
     // -- else Just date Y-m-d...
     else {
-      $datetime = DateTime::createFromFormat('Y-m-d', $date);
-      $formatdate = $datetime->format('YY/mm/dd');
+      //$datetime = DateTime::createFromFormat('Y-m-d', $date);
+      //$formatdate = $datetime->format('YY/mm/dd');
       $new_time = round(strtotime($formatdate) * 1000);
     }
     
