@@ -31,28 +31,30 @@ if(strstr($return, "access_token")){
   curl_close($ch);
   $return = json_decode($return);
   
-  echo "<pre>";
-  var_dump($return);
-  echo "</pre>";
-  die();
+  //echo "<pre>";
+  //var_dump($return);
+  //echo "</pre>";
+  //die();
   
   // -- Loop the results and put into array
-  if(isset($return->results)){
-    foreach($return->results as $result){
+  if(isset($return->data)){
+    foreach($return->data as $result){
       $_SESSION['fb_events'][] = $result;
     }
   }
   
-  
+  // -- Success,merge events
+  echo "<table cellpadding='10'><tr><td>";
+  var_dump($_SESSION['fb_events']);
+  echo "</td><td>";
+  var_dump($_SESSION['meetups']);
+  echo "</td></tr></table>";
   
 } else {
   $facebook_response = json_decode($return);
   // If Error
   if(isset($facebook_response->error)){
-    $_SESSION['facebook_auth'] = FALSE;
-    $_SESSION['facebook_auth_code'] = "";
-    unset($_SESSION['facebook_access_token']);
-    //die("Facebook Error Please Try Again..."); // -kjs sometimes we get an error here...
+    die("<br>**FACEBOOK ERROR**<br>");
   }
 }
 
