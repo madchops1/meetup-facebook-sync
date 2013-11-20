@@ -144,10 +144,7 @@ if(strstr($return, "access_token")){
     // -- Loop throuhg each meetup event
     $fb_event_synced = 0;
     foreach($_SESSION['formatted_meetups'] as $meetup_event){
-      if($meetup_event->title == $facebook_event->title || 
-         $meetup_event->title == $facebook_event->title . " @ " . $facebook_event->location ||
-         $facebook_event->title == $meetup_event->title . " @ " . $facebook_event->location
-      ){
+      if($meetup_event->title == $facebook_event->title){
         $fb_event_synced = 1;
         break;
       }
@@ -188,7 +185,7 @@ if(strstr($return, "access_token")){
       curl_setopt($ch, CURLOPT_POST, 1);
       curl_setopt($ch, CURLOPT_POSTFIELDS, 'group_id='.$_SESSION['meetup_group_object']->id.''.
                                            '&group_urlname='.$_SESSION['meetup_name'].''.
-                                           '&name='.urlencode($facebook_event->title . " @ " . $facebook_event->location).''.
+                                           '&name='.urlencode($facebook_event->title) .
                                            '&time='.$facebook_event->start.''.
                                            $venue.
                                            '&access_token='.$_SESSION['meetup_token']);
@@ -208,11 +205,7 @@ if(strstr($return, "access_token")){
     // -- Loop through each facebook event
     $mu_event_synced = 0;
     foreach($_SESSION['formatted_fb_events'] as $facebook_event){
-      if(
-        $facebook_event->title == $meetup_event->title ||
-        $facebook_event->title == $meetup_event->title . " @ " . $meetup_event->location || 
-        $meetup_event->title == $facebook_event->title . " @ " . $meetup_event->location
-      ){
+      if($facebook_event->title == $meetup_event->title){
         $mu_event_synced = 1;
         break;
       }  
@@ -221,12 +214,11 @@ if(strstr($return, "access_token")){
     if($mu_event_synced == 0){
       $synced_meetup_events++;
       
-      
       // -- Post Meetup to Facebook Page as Event...
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/'.$_SESSION['fb_page_id'].'/events');
       curl_setopt($ch, CURLOPT_POST, 1);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, 'name='.$meetup_event->title . ' @ ' . $meetup_event->location . ''.
+      curl_setopt($ch, CURLOPT_POSTFIELDS, 'name='.$meetup_event->title.
                                            '&start_time='.$meetup_event->start.''.
                                            '&description='.$meetup_event->description.''.
                                            '&location='.$meetup_event->location.''.
