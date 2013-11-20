@@ -64,7 +64,7 @@ if(strstr($return, "access_token")){
     // If there is a time in the facebook time
     if(strstr($facebook_event->start_time,"T")){
       
-      die($facebook_event->start_time);
+      
       
       $date_time_array = explode("T",$facebook_event->start_time);
       $date = $date_time_array[0];
@@ -72,7 +72,9 @@ if(strstr($return, "access_token")){
       $zone = substr($time, -5);
       $time = substr($time, 8);
       
-      
+      echo "Time: ".$time."<br>";
+      echo "Zone: ".$zone."<br>";
+      die($facebook_event->start_time);
       // -- Y-m-d => d/m/Y
       //$datetime = DateTime::createFromFormat('Y-m-d', $date);
       //$formatdate = $datetime->format('dd/mm/YY');
