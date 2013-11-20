@@ -144,6 +144,7 @@ if(strstr($return, "access_token")){
     foreach($_SESSION['formatted_meetups'] as $meetup_event){
       if($meetup_event->title == $facebook_event->title){
         $fb_event_synced = 1;
+        break;
       }
     }
     
@@ -203,12 +204,14 @@ if(strstr($return, "access_token")){
     foreach($_SESSION['formatted_fb_events'] as $facebook_event){
       if($meetup_event->title == $facebook_event->title){
         $mu_event_synced = 1;
+        break;
       }  
     }
     
     if($mu_event_synced == 0){
       $synced_meetup_events++;
       
+      /*
       // -- Post Meetup to Facebook Page as Event...
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/'.$_SESSION['fb_page_id'].'/events');
@@ -221,7 +224,7 @@ if(strstr($return, "access_token")){
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       $return = curl_exec($ch);
       curl_close($ch);
-      
+      */ 
     }
   }
   
