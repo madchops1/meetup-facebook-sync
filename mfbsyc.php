@@ -73,7 +73,7 @@ class mfbsync {
       
       $meetup_response = json_decode($return);
       // -- Successfull response...
-      if(isset($meetup_reponse->token_type) && $meetup_response->token_type == "bearer"){
+      if(isset($meetup_response->token_type) && $meetup_response->token_type == "bearer"){
         $_SESSION['meetup_refresh_token'] = $meetup_response->refresh_token;
         $_SESSION['meetup_access_token'] = $meetup_response->access_token;
       } else {
