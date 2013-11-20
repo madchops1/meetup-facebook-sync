@@ -38,7 +38,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
   </div>
   
   <div>
-  <input type='submit' value='Submit' />
+  <input type='submit' value='Sync' />
   </div>
   
 </form>
