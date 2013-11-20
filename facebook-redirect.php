@@ -94,7 +94,7 @@ if(strstr($return, "access_token")){
       curl_setopt($ch, CURLOPT_POSTFIELDS, 'group_id='.$_SESSION['meetup_group_object']->id.''.
                                            '&group_urlname='.$_SESSION['meetup_name'].''.
                                            '&name='.urlencode($facebook_event->title).''.
-                                           '&time='.$facebook_event->start.''.
+                                           '&time='.strtotime($facebook_event->start).''.
                                            '&access_token='.$_SESSION['meetup_token']);
       //curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       $return = curl_exec($ch);
@@ -104,7 +104,7 @@ if(strstr($return, "access_token")){
       echo                                 'https://api.meetup.com?group_id='.$_SESSION['meetup_group_object']->id.''.
                                            '&group_urlname='.$_SESSION['meetup_name'].''.
                                            '&name='.urlencode($facebook_event->title).''.
-                                           '&time='.$facebook_event->start.''.
+                                           '&time='.strtotime($facebook_event->start).''.
                                            '&access_token='.$_SESSION['meetup_token'].'<br><br><br>';
       var_dump($return);
       echo "</pre></div>";
