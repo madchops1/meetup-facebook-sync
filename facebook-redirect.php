@@ -115,11 +115,13 @@ if(strstr($return, "access_token")){
     $i++;
   }
   
+  /*
   echo "<table cellpadding='10'><tr><td><pre>";
   var_dump($_SESSION['fb_events']);
   echo "</pre></td><td><pre>";
   var_dump($_SESSION['meetups']);
   echo "</pre></td></tr></table><br><br>";
+  */
   
   echo "<table cellpadding='10'><tr><td><pre>";
   var_dump($_SESSION['formatted_fb_events']);
