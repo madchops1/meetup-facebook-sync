@@ -69,7 +69,7 @@ if(strstr($return, "access_token")){
       $date_time_array = explode("T",$facebook_event->start_time);
       $date = $date_time_array[0];
       $time = $date_time_array[1];
-      $his = substr($time, 8);
+      $his = substr($time, 0,8);
       $zone = substr($time, -5);
       //$time = substr($time, 8);
       
