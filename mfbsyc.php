@@ -46,7 +46,7 @@ class mfbsync {
    * Meetup Auth Function
    */
   function meetup_auth(){
-    if(!isset($_SESSION['meetup_access_token'])){
+    //if(!isset($_SESSION['meetup_access_token'])){
       // -- Set Response from Step 1, save code
       if($_REQUEST['code'] != '' && $_SESSION['meetup_auth'] == FALSE){
         $_SESSION['meetup_auth'] = TRUE;
@@ -77,7 +77,7 @@ class mfbsync {
         $_SESSION['meetup_refresh_token'] = $meetup_response->refresh_token;
         $_SESSION['meetup_access_token'] = $meetup_response->access_token;
       }
-    }
+    //}
   }
   
   /**
@@ -85,7 +85,7 @@ class mfbsync {
    */
   function facebook_auth(){
     
-    if(!isset($_SESSION['facebook_access_token'])){
+    //if(!isset($_SESSION['facebook_access_token'])){
       // -- Set Response from Step 1, save code
       if($_REQUEST['code'] && $_SESSION['facebook_auth'] == FALSE){
         $_SESSION['facebook_auth'] = TRUE;
@@ -126,7 +126,7 @@ class mfbsync {
         unset($_SESSION['facebook_access_token']);
         die("Error Please Try Again..."); // -kjs sometimes we get an error here...
       }
-    }
+    //}
   }
   
   /**
