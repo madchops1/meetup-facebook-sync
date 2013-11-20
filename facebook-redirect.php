@@ -73,9 +73,7 @@ if(strstr($return, "access_token")){
       $zone = substr($time, -5);
       //$time = substr($time, 8);
       
-      echo "Time: ".$his."<br>";
-      echo "Zone: ".$zone."<br>";
-      die($facebook_event->start_time);
+      
       // -- Y-m-d => d/m/Y
       //$datetime = DateTime::createFromFormat('Y-m-d', $date);
       //$formatdate = $datetime->format('dd/mm/YY');
@@ -85,6 +83,12 @@ if(strstr($return, "access_token")){
       //dd "/" M "/" YY : HH ":" II ":" SS space tzcorrection
       //"10/Oct/2000:13:55:36 -0700"
       $new_time = round(strtotime( $formatdate . ":" . $time . " " . $zone . "") * 1000);
+      
+      echo "Time: ".$his."<br>";
+      echo "Zone: ".$zone."<br>";
+      echo "Format: ".$formatdate."<br>";
+      echo "New: ".$new_time."<br>";
+      die($facebook_event->start_time);
       
     } 
     
