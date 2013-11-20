@@ -72,10 +72,10 @@ if(strstr($return, "access_token")){
   var_dump($_SESSION['formatted_meetups']);
   echo "</pre></td></tr></table>";
   
-  echo "<br><pre>";
-  var_dump($_SESSION['meetup_group_object']);
-  echo "</pre>";
-  die();
+  //echo "<br><pre>";
+  //var_dump($_SESSION['meetup_group_object']);
+  //echo "</pre>";
+  //die();
   
   
   // Loop the Facebook events and add them to meetup if necessary
