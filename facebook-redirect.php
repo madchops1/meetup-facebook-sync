@@ -176,6 +176,7 @@ if(strstr($return, "access_token")){
         }
       }
       
+      /*
       // -- POST FB EVENT to Meetup
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com/2/event');
@@ -189,7 +190,7 @@ if(strstr($return, "access_token")){
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       $return = curl_exec($ch);
       curl_close($ch);
-      
+      */
     }
   } 
   
