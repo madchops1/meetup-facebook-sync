@@ -80,13 +80,13 @@ class mfbsync {
         $_SESSION['meetup_access_token'] = $meetup_response->access_token;
       } else {
         $_SESSION['meetup_auth'] = FALSE;
-        $_SESSION['meetup_auth_code'] = '';
+        unset($_SESSION['meetup_auth_code']);
         
-        echo "<br><br>**ERROR**<br>";
+        echo "<br><br>**MEETUP ERROR**<br>";
         echo "<pre>";
         var_dump($meetup_response);
         echo "</pre>";
-        die("Meetup Error Please Try Again.");
+        //die("Meetup Error Please Try Again.");
         
       }
     //}
@@ -136,7 +136,7 @@ class mfbsync {
         $_SESSION['facebook_auth'] = FALSE;
         $_SESSION['facebook_auth_code'] = "";
         unset($_SESSION['facebook_access_token']);
-        die("Facebook Error Please Try Again..."); // -kjs sometimes we get an error here...
+        //die("Facebook Error Please Try Again..."); // -kjs sometimes we get an error here...
       }
     //}
   }
