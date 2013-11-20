@@ -76,6 +76,8 @@ class mfbsync {
       if(isset($meetup_reponse->token_type) && $meetup_response->token_type == "bearer"){
         $_SESSION['meetup_refresh_token'] = $meetup_response->refresh_token;
         $_SESSION['meetup_access_token'] = $meetup_response->access_token;
+      } else {
+        die("Meetup Error Please Try Again.");
       }
     //}
   }
@@ -124,7 +126,7 @@ class mfbsync {
         $_SESSION['facebook_auth'] = FALSE;
         $_SESSION['facebook_auth_code'] = "";
         unset($_SESSION['facebook_access_token']);
-        die("Error Please Try Again..."); // -kjs sometimes we get an error here...
+        die("Facebook Error Please Try Again..."); // -kjs sometimes we get an error here...
       }
     //}
   }
@@ -175,11 +177,11 @@ class mfbsync {
    * Fet Facebook Events
    */
   function get_facebook_events(){
-    
+    return true;
   }
   
   function sync_events(){
-    
+    return true;
   }
   
   
