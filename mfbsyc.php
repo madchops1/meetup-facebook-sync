@@ -34,9 +34,9 @@ class mfbsync {
     $this->meetup_auth();
     $this->facebook_auth();
     
-    $this->getMeetupEvents();
-    $this->getFacebookEvents();
-    $this->syncEvents();
+    $this->get_meetup_events();
+    $this->get_facebook_events();
+    $this->sync_events();
     
     $this->finish_up();
     
