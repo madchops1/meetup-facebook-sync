@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // -- Step 2, Get oauth access token from meetup
 $ch = curl_init();
@@ -20,7 +21,19 @@ if(isset($meetup_response->token_type) && $meetup_response->token_type == "beare
   echo "<br>".$meetup_response->access_token;
   
   // -- Get the Pages Events
+  // Get All the users Photos
+  //init curl
+  $ch = curl_init();
+  //Set the URL to work with
+  curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com/2/events?group_urlname='.$_SESSION['meetup_name'].'');
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  $return = curl_exec($ch);
+  curl_close($ch);
+  $return = json_decode($return);
   
+  echo "<br>";
+  var_dump($return);
+  //echo "<pre>";
   
 } else {
  
