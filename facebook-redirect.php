@@ -43,12 +43,32 @@ if(strstr($return, "access_token")){
     }
   }
   
-  // -- Success,merge events
-  echo "<table cellpadding='10'><tr><td>";
+  
+  // -- Success, format events
+  foreach($_SESSION['fb_events'] AS $facebook_event){
+    $_SESSION['formatted_fb_events'][]->title = $facebook_event->title;
+    $_SESSION['formatted_fb_events'][]->start = $facebook_event->start_time;
+    $_SESSION['formatted_fb_events'][]->location = $facebook_event->location;
+  }
+  
+  foreach($_SESSION['meetups'] as $meetup_event){
+    $_SESSION['formatted_meetups'][]->title = $meetup_event->name;
+    $_SESSION['formatted_meetups'][]->start = $meetup_event->start_time;
+    $_SESSION['formatted_meetups'][]->location = $meetup_event->venue->name;
+  }
+  
+  
+  echo "<table cellpadding='10'><tr><td><pre>";
   var_dump($_SESSION['fb_events']);
-  echo "</td><td>";
+  echo "</pre></td><td><pre>";
   var_dump($_SESSION['meetups']);
-  echo "</td></tr></table>";
+  echo "</pre></td></tr></table><br><br>";
+  
+  echo "<table cellpadding='10'><tr><td><pre>";
+  var_dump($_SESSION['formatted_fb_events']);
+  echo "</pre></td><td><pre>";
+  var_dump($_SESSION['formatted_meetups']);
+  echo "</pre></td></tr></table>";
   
 } else {
   $facebook_response = json_decode($return);
