@@ -196,11 +196,11 @@ if(strstr($return, "access_token")){
   
   // --Loop the Meetup events and add them to Facebook if necessary
   $synced_meetup_events=0;
-  foreach($formatted_mu_events as $meetup_event){
+  foreach($_SESSION['formatted_meetups'] as $meetup_event){
     
     // -- Loop through each facebook event
     $mu_event_synced = 0;
-    foreach($formatted_fb_events as $facebook_event){
+    foreach($_SESSION['formatted_fb_events'] as $facebook_event){
       if($meetup_event->title == $facebook_event->title){
         $mu_event_synced = 1;
       }  
