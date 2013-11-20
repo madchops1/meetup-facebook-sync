@@ -72,15 +72,11 @@ if(strstr($return, "access_token")){
   var_dump($_SESSION['formatted_meetups']);
   echo "</pre></td></tr></table>";
   
-  //echo "<br><pre>";
-  //var_dump($_SESSION['meetup_group_object']);
-  //echo "</pre>";
-  //die();
   
   $synced_facebook_events=0;
   // Loop the Facebook events and add them to meetup if necessary
-  foreach($formatted_fb_events as $facebook_event){
-    foreach($formatted_mu_events as $meetup_event){
+  foreach($_SESSION['formatted_fb_events'] as $facebook_event){
+    foreach($_SESSION['formatted_meetups'] as $meetup_event){
       $fb_event_synced = 0;
       if($meetup_event->title == $facebook_event->title){
         $fb_event_synced = 1;
