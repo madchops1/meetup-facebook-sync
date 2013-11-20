@@ -48,7 +48,7 @@ class mfbsync {
   function meetup_auth(){
     //if(!isset($_SESSION['meetup_access_token'])){
       // -- Set Response from Step 1, save code
-      if($_REQUEST['code'] != '' && $_SESSION['meetup_auth'] == FALSE){
+      if($_REQUEST['code'] != '' && $_SESSION['meetup_auth'] == FALSE && $_SESSION['facebook_auth'] == FALSE){
         //var_dump($_SERVER);
         $_SESSION['meetup_auth'] = TRUE;
         $_SESSION['meetup_auth_code'] = $_REQUEST['code'];
@@ -80,6 +80,8 @@ class mfbsync {
       } else {
         $_SESSION['meetup_auth'] = FALSE;
         $_SESSION['meetup_auth_code'] = '';
+        
+        echo "<br><br>**ERROR**<br>";
         echo "<pre>";
         var_dump($meetup_response);
         echo "</pre>";
