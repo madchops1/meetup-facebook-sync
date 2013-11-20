@@ -28,12 +28,12 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
   
   <div>
     <label>Meetup Name</label>
-    <input type='text' name='meetup_name' />
+    <input type='text' name='meetup_name' value='Chicago-Foosball' />
   </div>
   
   <div>
     <label>FB Page ID</label>
-    <input type='text' name='fb_page_id' />
+    <input type='text' name='fb_page_id' value='474860665902713' />
   </div>
   
   <div>
