@@ -92,11 +92,16 @@ if(strstr($return, "access_token")){
                                            '&name='.$facebook_event->title.''.
                                            '&time='.strtotime($facebook_event->start).''.
                                            '&access_token='.$_SESSION['meetup_token']);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      //curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       $return = curl_exec($ch);
       curl_close($ch);
       
       echo "<br><br><div style='border:5px solid red; display:block; clear:both;'>Synced Facebook Event To Meetup:<br><pre>";
+      echo                                 'https://api.meetup.com?group_id='.$_SESSION['meetup_group_object']->id.''.
+                                           '&group_urlname='.$_SESSION['meetup_name'].''.
+                                           '&name='.$facebook_event->title.''.
+                                           '&time='.strtotime($facebook_event->start).''.
+                                           '&access_token='.$_SESSION['meetup_token'].'<br><br><br>';
       var_dump($return);
       echo "</pre></div>";
       
