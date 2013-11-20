@@ -26,9 +26,6 @@ if(isset($meetup_response->token_type) && $meetup_response->token_type == "beare
   $ch = curl_init();
   //Set the URL to work with
   curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com/2/events?group_urlname='.$_SESSION['meetup_name'].'&access_token='.$meetup_response->access_token.'');
-  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'Authorization: bearer TOKEN'
-  ));
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
   $return = curl_exec($ch);
   curl_close($ch);
