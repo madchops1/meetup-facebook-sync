@@ -77,7 +77,7 @@ class mfbsync {
         $_SESSION['meetup_refresh_token'] = $meetup_response->refresh_token;
         $_SESSION['meetup_access_token'] = $meetup_response->access_token;
       } else {
-        $_SESSION['meetup_auth'] = TRUE;
+        $_SESSION['meetup_auth'] = FALSE;
         $_SESSION['meetup_auth_code'] = '';
         echo "<pre>";
         var_dump($meetup_response);
