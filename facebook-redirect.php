@@ -89,6 +89,50 @@ if(strstr($return, "access_token")){
     // -- If the fb event doesn't exist in meetup
     if($fb_event_synced == 0){
       $synced_facebook_events++;
+      
+      // -- Venue Processing
+      // -- Get the Meetup Group's Venues...
+      //init curl
+      $ch = curl_init();
+      //Set the URL to work with
+      curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com/2/venues?group_id='.$_SESSION['meetup_group_object']->id.'&access_token='.$meetup_response->access_token.'');
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      $return = curl_exec($ch);
+      curl_close($ch);
+      $return = json_decode($return);
+      
+      // -- Loop the results and put into array
+      $location_found = 0;
+      $venue = '';
+      if(isset($return->results)){
+        foreach($return->results as $result){
+          if($result->name == $facebook_event->location){
+            $location_found = 1;
+            $venue_id = $result->id;
+            $venue='&venue_id='.$venue_id.'';
+          }
+        }
+      }
+      
+      /**  ##MAYBE ONE DAY##
+      // -- If no location found then add the location
+      if($location_found == 0 && $facebook_event->location != ''){
+        // -- POST Location to Meetup
+        // -- POST FB EVENT to Meetup
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com/'.$_SESSION['meetup_name'].'/venues');
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'group_id='.$_SESSION['meetup_group_object']->id.''.
+                                             '&group_urlname='.$_SESSION['meetup_name'].''.
+                                             '&name='.urlencode($facebook_event->title).''.
+                                             '&time='.round(strtotime($facebook_event->start)*1000).''.
+                                             '&access_token='.$_SESSION['meetup_token']);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $return = curl_exec($ch);
+      }*/
+      
+      
+      // -- POST FB EVENT to Meetup
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com/2/event');
       curl_setopt($ch, CURLOPT_POST, 1);
@@ -96,12 +140,12 @@ if(strstr($return, "access_token")){
                                            '&group_urlname='.$_SESSION['meetup_name'].''.
                                            '&name='.urlencode($facebook_event->title).''.
                                            '&time='.round(strtotime($facebook_event->start)*1000).''.
+                                           $venue.
                                            '&access_token='.$_SESSION['meetup_token']);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       $return = curl_exec($ch);
-      //var_dump($return);
       
-      
+      /*
       echo "<br><br><div style='border:5px solid red; display:block; clear:both;'>Synced Facebook Event To Meetup:<br><pre>";
       echo                                 'https://api.meetup.com/2/event?group_id='.$_SESSION['meetup_group_object']->id.''.
                                            '&group_urlname='.$_SESSION['meetup_name'].''.
@@ -110,6 +154,7 @@ if(strstr($return, "access_token")){
                                            '&access_token='.$_SESSION['meetup_token'].'<br><br><br>';
       var_dump($return);
       echo "</pre></div>";
+      */
       curl_close($ch);
     }
   } 

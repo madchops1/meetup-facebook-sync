@@ -22,7 +22,6 @@ if(isset($meetup_response->token_type) && $meetup_response->token_type == "beare
   $_SESSION['meetup_token'] = $meetup_response->access_token;
   
   // -- Get the Meetup Group's Details
-  // -- Get the Meetups Events
   //init curl
   $ch = curl_init();
   //Set the URL to work with
