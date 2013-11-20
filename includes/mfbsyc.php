@@ -11,13 +11,7 @@ error_reporting(E_ERROR);
 
 class mfbsync {
   
-  var $meetup_redirect_uri       = "http://mfbsync.karlsteltenpohl.com";
-  var $meetup_consumer_key       = "drdhpm0c4l1haeem1evkcdk2h5";
-  var $meetup_consumer_secret    = "r0jqlpdk6hdqsspb17iq7iftt"; 
   
-  var $facebook_redirect_uri     = "http://mfbsync.karlsteltenpohl.com/";
-  var $facebook_consumer_key     = "588715921194851";
-  var $facebook_consumer_secret  = "5509ae4d80411edb07787535d55e144f";
   
   var $meetup_events = array();
   var $facebook_events = array();
@@ -28,17 +22,17 @@ class mfbsync {
   function __construct(){
     
     // -- SESSION Setup
-    if (!isset($_SESSION['meetup_auth'])) { $_SESSION['meetup_auth'] = FALSE; }
-    if (!isset($_SESSION['facebook_auth'])) { $_SESSION['facebook_auth'] = FALSE; }
+    //if (!isset($_SESSION['meetup_auth'])) { $_SESSION['meetup_auth'] = FALSE; }
+    //if (!isset($_SESSION['facebook_auth'])) { $_SESSION['facebook_auth'] = FALSE; }
       
-    $this->meetup_auth();
-    $this->facebook_auth();
+    //$this->meetup_auth();
+    //$this->facebook_auth();
     
-    $this->get_meetup_events();
-    $this->get_facebook_events();
-    $this->sync_events();
+    //$this->get_meetup_events();
+    //$this->get_facebook_events();
+    //$this->sync_events();
     
-    $this->finish_up();
+    //$this->finish_up();
     
   }  
   
@@ -217,4 +211,13 @@ class mfbsync {
   }
   
 }
+
+class fb_oauth {
+  
+}
+
+class mu_oauth {
+  
+}
+
 ?>
