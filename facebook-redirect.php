@@ -129,11 +129,13 @@ if(strstr($return, "access_token")){
   echo "</pre></td></tr></table><br><br>";
   */
   
+  /*
   echo "<table cellpadding='10'><tr><td><pre>";
   var_dump($_SESSION['formatted_fb_events']);
   echo "</pre></td><td><pre>";
   var_dump($_SESSION['formatted_meetups']);
   echo "</pre></td></tr></table>";
+  */
   
   $synced_facebook_events=0;
   // -- Loop the Facebook events and add them to meetup if necessary
@@ -237,9 +239,10 @@ if(strstr($return, "access_token")){
   
   // -- Debriefing
   echo "<br><br>DEBRIEF:<br>";
+  echo "SUCCESS!<br>";
   echo $synced_facebook_events . " facebook events synced to meetup.<br>";
   echo $synced_meetup_events . " meetup events synced to facebook.<br>";
-  
+ 
 } else {
   $facebook_response = json_decode($return);
   // If Error
