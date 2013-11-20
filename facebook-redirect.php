@@ -45,18 +45,22 @@ if(strstr($return, "access_token")){
   
   
   // -- Success, format events
+  $i=0;
   foreach($_SESSION['fb_events'] AS $facebook_event){
-    $_SESSION['formatted_fb_events'][]->title = $facebook_event->name;
-    $_SESSION['formatted_fb_events'][]->start = $facebook_event->start_time;
-    $_SESSION['formatted_fb_events'][]->location = $facebook_event->location;
-    $_SESSION['formatted_fb_events'][]->description = '';
+    $_SESSION['formatted_fb_events'][$i]->title = $facebook_event->name;
+    $_SESSION['formatted_fb_events'][$i]->start = $facebook_event->start_time;
+    $_SESSION['formatted_fb_events'][$i]->location = $facebook_event->location;
+    $_SESSION['formatted_fb_events'][$i]->description = '';
+    $i++;
   }
   
+  $i=0;
   foreach($_SESSION['meetups'] as $meetup_event){
-    $_SESSION['formatted_meetups'][]->title = $meetup_event->name;
-    $_SESSION['formatted_meetups'][]->start = date("m/d/Y",$meetup_event->time);
-    $_SESSION['formatted_meetups'][]->location = $meetup_event->venue->name;
-    $_SESSION['formatted_meetups'][]->description = '';
+    $_SESSION['formatted_meetups'][$i]->title = $meetup_event->name;
+    $_SESSION['formatted_meetups'][$i]->start = date("m/d/Y",$meetup_event->time);
+    $_SESSION['formatted_meetups'][$i]->location = $meetup_event->venue->name;
+    $_SESSION['formatted_meetups'][$i]->description = '';
+    $i++;
   }
   
   
