@@ -81,6 +81,8 @@ class mfbsync {
         var_dump($meetup_response);
         echo "</pre>";
         die("Meetup Error Please Try Again.");
+        $_SESSION['meetup_auth'] = TRUE;
+        $_SESSION['meetup_auth_code'] = '';
       }
     //}
   }
