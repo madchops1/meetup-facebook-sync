@@ -50,6 +50,8 @@ class mfbsync {
       // -- Set Response from Step 1, save code
       if($_REQUEST['code'] != '' && $_SESSION['meetup_auth'] == FALSE && $_SESSION['facebook_auth'] == FALSE){
         //var_dump($_SERVER);
+        var_dump($_REQUEST);
+        die();
         $_SESSION['meetup_auth'] = TRUE;
         $_SESSION['meetup_auth_code'] = $_REQUEST['code'];
       }
