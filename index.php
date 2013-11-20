@@ -24,21 +24,33 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 }
 
 ?>
+<html>
+  <head>
+  
+  
+  
+  </head>
+  <body>
+  
+    <div style='margin:0px auto; width:300px; margin-top:200px; background:#gray;'>
+      <form>
+        
+        <div>
+          <label>Meetup Name</label>
+          <input type='text' name='meetup_name' value='' /> ex. "Chicago-Foosball"
+        </div>
+        
+        <div>
+          <label>FB Page ID</label>
+          <input type='text' name='fb_page_id' value='' /> ex. "474860665902713"
+        </div>
+        
+        <div>
+        <input type='submit' value='Sync' />
+        </div>
+        
+      </form>
+    </div>
 
-<form>
-  
-  <div>
-    <label>Meetup Name</label>
-    <input type='text' name='meetup_name' value='Chicago-Foosball' />
-  </div>
-  
-  <div>
-    <label>FB Page ID</label>
-    <input type='text' name='fb_page_id' value='474860665902713' />
-  </div>
-  
-  <div>
-  <input type='submit' value='Sync' />
-  </div>
-  
-</form>
+  </body>
+</html>
