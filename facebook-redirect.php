@@ -83,12 +83,12 @@ if(strstr($return, "access_token")){
       //dd "/" M "/" YY : HH ":" II ":" SS space tzcorrection
       //"10/Oct/2000:13:55:36 -0700"
       $new_time = round(strtotime( $formatdate . " " . $his . " " . $zone . "") * 1000);
-      
-      echo "Time: ".$his."<br>";
-      echo "Zone: ".$zone."<br>";
-      echo "Format: ".$formatdate."<br>";
-      echo "New: ".$new_time."<br>";
-      die($facebook_event->start_time);
+            
+      //echo "Time: ".$his."<br>";
+      //echo "Zone: ".$zone."<br>";
+      //echo "Format: ".$formatdate."<br>";
+      //echo "New: ".$new_time."<br>";
+      //die($facebook_event->start_time);
       
     } 
     
@@ -105,10 +105,11 @@ if(strstr($return, "access_token")){
     $i++;
   }
   
+  // -- Format Meetups
   $i=0;
   foreach($_SESSION['meetups'] as $meetup_event){
     $_SESSION['formatted_meetups'][$i]->title = $meetup_event->name;
-    $_SESSION['formatted_meetups'][$i]->start = date("m/d/Y",$meetup_event->time);
+    $_SESSION['formatted_meetups'][$i]->start = $meetup_event->time;
     $_SESSION['formatted_meetups'][$i]->location = $meetup_event->venue->name;
     $_SESSION['formatted_meetups'][$i]->description = '';
     $i++;
