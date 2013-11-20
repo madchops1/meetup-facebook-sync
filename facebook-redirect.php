@@ -184,7 +184,7 @@ if(strstr($return, "access_token")){
         $return = curl_exec($ch);
       }*/
       
-      /*
+      
       // -- POST FB EVENT to Meetup
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com/2/event');
@@ -197,7 +197,7 @@ if(strstr($return, "access_token")){
                                            '&access_token='.$_SESSION['meetup_token']);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       $return = curl_exec($ch);
-      */
+      
       
       echo "<br><br><div style='border:5px solid red; display:block; clear:both;'>Synced Facebook Event To Meetup:<br><pre>";
       echo                                 'https://api.meetup.com/2/event?group_id='.$_SESSION['meetup_group_object']->id.''.
