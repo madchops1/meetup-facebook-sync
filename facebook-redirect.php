@@ -39,7 +39,18 @@ if(strstr($return, "access_token")){
   // -- Loop the results and put into array
   if(isset($return->data)){
     foreach($return->data as $result){
-      $_SESSION['fb_events'][] = $result;
+      
+      // -- Get the Event Details
+      $ch = curl_init();
+      //Set the URL to work with
+      curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/'.$result->id.'?access_token='.$access_token.'');
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      $detailed_return = curl_exec($ch);
+      curl_close($ch);
+      $detailed_return = json_decode($detailed_return);
+      
+      
+      $_SESSION['fb_events'][] = $detailed_return;
     }
   }
   
@@ -48,7 +59,34 @@ if(strstr($return, "access_token")){
   $i=0;
   foreach($_SESSION['fb_events'] AS $facebook_event){
     $_SESSION['formatted_fb_events'][$i]->title = $facebook_event->name;
-    $_SESSION['formatted_fb_events'][$i]->start = $facebook_event->start_time;
+    
+    // -- Start Time Processing
+    // If there is a time in the facebook time
+    if(strstr($facebook_event->start_time,"T")){
+      $date_time_array = explode("T",$facebook_event->start);
+      $date = $date_time_array[0];
+      $time = $date_time_array[1];
+      $zone = substr($time, -5);
+      $time = substr($time, 8);
+      
+      $datetime = DateTime::createFromFormat('Y-m-d', $date);
+      $formatdate = $datetime->format('dd/mm/YY');
+      //echo $datetime->format('Y-m-d');
+    
+      //dd "/" M "/" YY : HH ":" II ":" SS space tzcorrection
+      //"10/Oct/2000:13:55:36 -0700"
+      $new_time = round(strtotime( $formatdate . ":" . $time . " " . $zone . "") * 1000);
+      
+    } 
+    
+    // -- else Just date Y-m-d...
+    else {
+      $datetime = DateTime::createFromFormat('Y-m-d', $date);
+      $formatdate = $datetime->format('YY/mm/dd');
+      $new_time = round(strtotime($formatdate) * 1000);
+    }
+    
+    $_SESSION['formatted_fb_events'][$i]->start = $new_time;
     $_SESSION['formatted_fb_events'][$i]->location = $facebook_event->location;
     $_SESSION['formatted_fb_events'][$i]->description = '';
     $i++;
@@ -63,7 +101,6 @@ if(strstr($return, "access_token")){
     $i++;
   }
   
-  
   echo "<table cellpadding='10'><tr><td><pre>";
   var_dump($_SESSION['fb_events']);
   echo "</pre></td><td><pre>";
@@ -75,7 +112,6 @@ if(strstr($return, "access_token")){
   echo "</pre></td><td><pre>";
   var_dump($_SESSION['formatted_meetups']);
   echo "</pre></td></tr></table>";
-  
   
   $synced_facebook_events=0;
   // Loop the Facebook events and add them to meetup if necessary
@@ -91,7 +127,7 @@ if(strstr($return, "access_token")){
       $synced_facebook_events++;
       
       // -- Venue Processing
-      // -- Get the Meetup Group's Venues...
+      // Get the Meetup Group's Venues...
       //init curl
       $ch = curl_init();
       //Set the URL to work with
@@ -101,7 +137,7 @@ if(strstr($return, "access_token")){
       curl_close($ch);
       $return = json_decode($return);
       
-      // -- Loop the results and put into array
+      // -- Loop the venue results to check for a match
       $location_found = 0;
       $venue = '';
       if(isset($return->results)){
@@ -113,6 +149,9 @@ if(strstr($return, "access_token")){
           }
         }
       }
+      
+      
+      
       
       /**  ##MAYBE ONE DAY##
       // -- If no location found then add the location
@@ -139,22 +178,22 @@ if(strstr($return, "access_token")){
       curl_setopt($ch, CURLOPT_POSTFIELDS, 'group_id='.$_SESSION['meetup_group_object']->id.''.
                                            '&group_urlname='.$_SESSION['meetup_name'].''.
                                            '&name='.urlencode($facebook_event->title).''.
-                                           '&time='.round(strtotime($facebook_event->start)*1000).''.
+                                           '&time='.$facebook_event->start.''.
                                            $venue.
                                            '&access_token='.$_SESSION['meetup_token']);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       $return = curl_exec($ch);
       
-      /*
+      
       echo "<br><br><div style='border:5px solid red; display:block; clear:both;'>Synced Facebook Event To Meetup:<br><pre>";
       echo                                 'https://api.meetup.com/2/event?group_id='.$_SESSION['meetup_group_object']->id.''.
                                            '&group_urlname='.$_SESSION['meetup_name'].''.
                                            '&name='.urlencode($facebook_event->title).''.
-                                           '&time='.round(strtotime($facebook_event->start)*1000).''.
+                                           '&time='.$facebook_event->start.''.
                                            '&access_token='.$_SESSION['meetup_token'].'<br><br><br>';
       var_dump($return);
       echo "</pre></div>";
-      */
+      
       curl_close($ch);
     }
   } 
