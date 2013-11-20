@@ -56,7 +56,7 @@ if(isset($meetup_response->token_type) && $meetup_response->token_type == "beare
   }
   
   // -- Go to facebook now
-  header("LOCATION: https://www.facebook.com/dialog/oauth?client_id=588715921194851&scope=manage_pages&create_event&redirect_uri=http://mfbsync.karlsteltenpohl.com/facebook-redirect.php");
+  header("LOCATION: https://www.facebook.com/dialog/oauth?client_id=588715921194851&scope=manage_pages,create_event&redirect_uri=http://mfbsync.karlsteltenpohl.com/facebook-redirect.php");
   die;
 } 
 
