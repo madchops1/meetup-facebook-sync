@@ -68,35 +68,51 @@ if(strstr($return, "access_token")){
       $_SESSION['user_object'] = $user_result;
     }
     
-    // Insert FB Page
-    $query = "  INSERT INTO `fb_pages` 
-                SET 
-                `name`='".$_SESSION['fb_page_id']."',
-                `access_token`='".$access_token."'";
-    mysql_query($query);
-    $fid = mysql_insert_id();
+    // -- Loop Through this users relationships and see if he has this one already
+    $rel_exists = 0;
+    $rel_select = "  SELECT * FROM fb_meetup_rel WHERE uid='".$_SESSION['user_object']->id."'";
+    $rel_result = mysql_query($rel_select);
+    while($rel = mysql_fetch_object($rel_result)){
+      // -- Check the meetup and facebook pages
+      $fselect = "  SELECT * FROM fb_pages WHERE id='".$rel->fid."' LIMIT 1";
+      $fobj = mysql_fetch_object(mysql_result($fselect));
+      $mselect = "  SELECT * FROM meetup_pages WHERE id='".$rel->mid."' LIMIT 1";
+      $mobj = mysql_fetch_object(mysql_result($mselect));
+      
+      if($mobj->name == $_SESSION['meetup_name'] && $fobj->name == $_SESSION['fb_page_id']){
+        $rel_exists = 1;
+      }
+    }
     
-    // Insert MU page
-    $query = "  INSERT INTO meetup_pages 
-                SET 
-                name='".$_SESSION['meetup_name']."',
-                access_token='".$_SESSION['meetup_token']."',
-                refresh_token='".$_SESSION['refresh_token']."'";
-    mysql_query($query);
-    $mid = mysql_insert_id();
-    
-    // Connect With the Relational Table
-    $query = "  INSERT INTO fb_meetup_rel
-                SET 
-                fid='".$fid."',
-                mid='".$mid."',
-                uid='".$_SESSION['user_object']->id."'";
-    mysql_query($query);
-    
-    // Get Facebook Page Events
-    //init curl
+    if($rel_exists == 0){
+      // -- Insert FB Page
+      $query = "  INSERT INTO `fb_pages` 
+                  SET 
+                  `name`='".$_SESSION['fb_page_id']."',
+                  `access_token`='".$access_token."'";
+      mysql_query($query);
+      $fid = mysql_insert_id();
+      
+      // -- Insert MU page
+      $query = "  INSERT INTO meetup_pages 
+                  SET 
+                  name='".$_SESSION['meetup_name']."',
+                  access_token='".$_SESSION['meetup_token']."',
+                  refresh_token='".$_SESSION['refresh_token']."'";
+      mysql_query($query);
+      $mid = mysql_insert_id();
+      
+      // -- Connect With the Relational Table
+      $query = "  INSERT INTO fb_meetup_rel
+                  SET 
+                  fid='".$fid."',
+                  mid='".$mid."',
+                  uid='".$_SESSION['user_object']->id."'";
+      mysql_query($query);
+    }
+      
+    // -- Get Facebook Page Events
     $ch = curl_init();
-    //Set the URL to work with
     curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/'.$_SESSION['fb_page_id'].'/events?access_token='.$access_token.'');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $return = curl_exec($ch);
