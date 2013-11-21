@@ -100,6 +100,12 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         margin:20px auto;
       }
       
+      .content p{
+        font-family:georgia;
+        color:#666;
+        font-size:12px;
+      }
+      
       .content img{
         opacity:0.5;
       }
