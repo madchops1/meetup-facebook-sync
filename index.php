@@ -123,6 +123,8 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset;
         color: #FFFFFF;
         text-shadow: 0 -1px 0 #5A7600;
+        cursor:pointer;
+        padding:10px 10px;
       }    
       
       .sync-once-button:hover{
