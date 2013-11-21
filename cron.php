@@ -19,7 +19,6 @@ while($row = mysql_fetch_object($result)){
   $facebook_object = mysql_fetch_object(mysql_query($select));
   
   // -- See if our token is still good for Meetup
-  // init curl
   $ch = curl_init();
   //Set the URL to work with
   curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com/2/events?group_urlname='.$_SESSION['meetup_name'].'&access_token='.$meetup_response->access_token.'');
@@ -34,8 +33,9 @@ while($row = mysql_fetch_object($result)){
       $_SESSION['meetups'][] = $result;
     }
   }
+  // -- Get A New Token With the Refresh Token
   else {
-    echo "";
+    var_dump($return);
   }
   
   

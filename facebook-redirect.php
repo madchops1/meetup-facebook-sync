@@ -21,15 +21,37 @@ if(strstr($return, "access_token")){
   $tokenArray = explode("=",$returnArray[0]);
   $access_token = $tokenArray[1];
   
-  // -- Successfully retreived access tokens from Meetup and Facebook at this point
+  // -- Exchange for a long-lived token
+  /*
+  GET /oauth/access_token?
+  grant_type=fb_exchange_token&
+  client_id={app-id}&
+  client_secret={app-secret}&
+  fb_exchange_token={short-lived-token}*/
+  // -- Step 2, Get access token from user
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/oauth/access_token?'.
+                                'grant_type=fb_exchange_token'.
+                                '&client_id='.$fb_app_id.''.
+                                '&client_secret='.$fb_app_secret.''.
+                                '&fb_exchange_token='.$access_token);
+   
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  //execute the request
+  $return = curl_exec($ch);
+  curl_close($ch);
+  echo "Long-Term Token:<br>";
+  var_dump($return);
+  die();
+  // -- Successfully retreived and exchanged access tokens from Meetup and Facebook at this point
+  // so we are going to save it to the database.
+  
   // Insert FB Page
   $query = "  INSERT INTO `fb_pages` 
               SET 
               `name`='".$_SESSION['fb_page_id']."',
               `access_token`='".$access_token."'";
   mysql_query($query);
-  
-  
   $fid = mysql_insert_id();
   
   // Insert MU page

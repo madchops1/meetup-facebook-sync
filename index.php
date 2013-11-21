@@ -13,6 +13,8 @@ $_SESSION['meetup_token']          = '';
 $_SESSION['formatted_fb_events']   = array();
 $_SESSION['formatted_meetups']     = array();
 $_SESSION['meetup_group_venues']   = array();
+$_SESSION['meetup_token']          = array();
+$_SESSION['refresh_token']         = array();
 
 // -- Form Action
 if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){

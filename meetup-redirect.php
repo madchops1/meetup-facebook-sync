@@ -21,7 +21,7 @@ if(isset($meetup_response->token_type) && $meetup_response->token_type == "beare
   
   // -- Save the meetup access token in a session
   $_SESSION['meetup_token'] = $meetup_response->access_token;
-  
+  $_SESSION['refresh_token'] = $meetup_response->refresh_token;
   // -- Get the Meetup Group's Details
   //init curl
   $ch = curl_init();
