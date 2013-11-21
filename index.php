@@ -343,7 +343,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       
       <div id="Awesome" class="anim750">
 	      <div class="reveal circle_wrapper">
-      		<div class="circle">... or automate for $5/mo.</div>
+      		<div class="circle">...to sync now!</div>
       	</div>
       						
       	<div class="sticky anim750">
