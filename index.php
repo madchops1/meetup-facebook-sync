@@ -142,17 +142,15 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       }
       
       .header h1 span.c{
-    clear: both;
     color: #FBEC3F;
     display: block;
     font-family: Verdana;
-    font-size: 100px;
+    font-size: 50px;
     font-style: italic;
-    letter-spacing: -22px;
+    letter-spacing: -11px;
     margin-bottom: -15px;
     margin-right: -210px;
-    
-    text-shadow:0px 1px 1px #000;
+    text-shadow: 0 1px 0 #000000;
     
       }
       
@@ -377,7 +375,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
   
     <div class='header'>
     
-      <h1><span class='mm big'>M</span><span class='ff big'>F</span><span class='bb big'>B</span><span class='c'>SYNC</span> Meetup.com <span class='a'>&</span> Facebook <span class='b'>Events</span></h1>
+      <h1><span class='mm big'>M</span><span class='ff big'>F</span><span class='bb big'>B</span><span class='c'>SYNC</span> <div>Meetup.com <span class='a'>&</span> Facebook <span class='b'>Events</span></div></h1>
       
       <div id="Awesome" class="anim750">
 	      <div class="reveal circle_wrapper">
