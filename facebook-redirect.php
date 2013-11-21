@@ -23,10 +23,10 @@ if(strstr($return, "access_token")){
   
   // -- Successfully retreived access tokens from Meetup and Facebook at this point
   // Insert FB Page
-  $query = "  INSERT INTO fb_pages 
+  $query = "  INSERT INTO `fb_pages` 
               SET 
-              name='".$_SESSION['fb_page_id']."',
-              access_token='".$access_token."'";
+              `name`='".$_SESSION['fb_page_id']."',
+              `access_token`='".$access_token."'";
   mysql_query($query);
   $fid = mysql_insert_id();
   
