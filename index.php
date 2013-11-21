@@ -407,7 +407,10 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       
     </div>
     
+    
     <div class="content">
+    
+      <!-- 
       <h2>Happily Used By:</h2>
       <table style="width:100%;">
         <tr>
@@ -416,9 +419,9 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
           <td><img src='images/hp_cisco.png' /></td>
         </tr>
       </table>
-    
-      <!-- 
-      <h2>About Us</h2>
+      -->
+      
+      <h2>About</h2>
       <p>
       This service is provided by <a href='http://webksd.com'>KSD</a> and created by <a href='http://karlsteltenpohl.com'>Karl Steltenpohl</a> (founder of the <a href='http://meetup.com/Chicago-Foosball'>Chicago Foosball Meetup</a>).
       </p>
@@ -426,7 +429,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       <p>
       We ask for a $5.00 monthly subscription if the pages will stay synced in real-time forever!
       </p>
-      -->
+      
       
     </div>
     
