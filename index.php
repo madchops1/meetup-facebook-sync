@@ -73,6 +73,8 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       body{
         font-family:arial;
         background:#f5f5f5;
+        margin:0px;
+        padding:0px;
       }
       
       p{
