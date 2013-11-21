@@ -99,7 +99,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       }
       
       .form-inner-wrapper{
-        padding:30px;
+        padding:85px;
       }
             
       .content{
@@ -131,7 +131,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       .footer{
         font-size:10px;
         width:500px;
-        margin:10px auto;
+        margin:0px auto;
         color:#fff;
       }
       
@@ -144,6 +144,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         width:100%;
         padding:20px 0px;
         position:relative;
+        margin-top:40px; 
       }
       
       
@@ -266,7 +267,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       }
     
       .how{
-        color:#666;
+        color:#fff;
         font-weight:bold;
       }
     
@@ -481,12 +482,12 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
           
           <div>
             <label>Meetup Name</label>
-            <input type='text' name='meetup_name' class='input' value='' /> ex. "Chicago-Foosball"
+            <input type='text' name='meetup_name' class='input' value='' /> <br>ex. "Chicago-Foosball"
           </div><br>
           
           <div>
             <label>FB Page ID</label>
-            <input type='text' name='fb_page_id' class='input' value='' /> ex. "474860665902713"
+            <input type='text' name='fb_page_id' class='input' value='' /> <br>ex. "474860665902713"
           </div><br>
           
           <div>
