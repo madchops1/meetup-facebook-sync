@@ -34,14 +34,14 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
     <style>
       body{
         font-family:arial;
-        background:blue;
+        background:#f5f5f5;
       }
       
       .form-wrapper{
         margin:0px auto; 
         width:500px; 
         margin-top:200px; 
-        background:rgb(100,100,100,0.6); 
+        background:rgba(100,100,100,0.6); 
         padding:20px; 
         font-size:12px;
         border-radius:20px;
@@ -65,7 +65,11 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         </div><br>
         
         <div>
-        <input type='submit' value='Sync' />
+          <input type='submit' value='Sync' />
+        </div>
+        
+        <div>
+          <a class="wepay-widget-button wepay-green" id="wepay_widget_anchor_528d51205f4a9" href="https://www.wepay.com/subscribe/2010588022/plan/2084467867">Sync</a><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 2084467867,widget_type: "subscription_plan",anchor_id: "wepay_widget_anchor_528d51205f4a9",widget_options: {group_id: 2010588022,show_plan_price: false,reference_id: ""}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = 'https://static.wepay.com/min/js/widgets.v2.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
         </div>
         
       </form>
