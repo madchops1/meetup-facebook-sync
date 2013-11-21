@@ -129,6 +129,10 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         color:#fff;
       }
       
+      .footer a{
+        color:#FBEC3F;
+      }
+      
       .big-footer{
         background-color:#333;
         width:100%;
