@@ -1,5 +1,4 @@
-#!/usr/local/bin/php  
-<!--?php  
+<?php  
 
 mail('karl@webksd.com','Cron From MFBsync Works!','asdfasdf asdf asdfasdf asdas dfasdfadfs');
 
@@ -24,5 +23,4 @@ while($row = mysql_fetch_object($result)){
 }
 */
 
-
-?-->
+?>
