@@ -227,11 +227,12 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       }
       
       .footer-yellow{
-        width:66%;
+        width:33%;
         background:#FBEC3F;
         height:3px;
         position:absolute;
         top:0px;
+        left:66%;
       }
       
       .anim750{
