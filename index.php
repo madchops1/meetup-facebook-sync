@@ -94,6 +94,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         font-size:12px;
         border-radius:300px;
         color:#fff;
+        height:500px;
         
       }
       
