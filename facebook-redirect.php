@@ -77,9 +77,9 @@ if(strstr($return, "access_token")){
     while($rel = mysql_fetch_object($rel_result)){
       // -- Check the meetup and facebook pages
       $fselect = "  SELECT * FROM fb_pages WHERE id='".$rel->fid."' LIMIT 1";
-      $fobj = mysql_fetch_object(mysql_result($fselect));
+      $fobj = mysql_fetch_object(mysql_query($fselect));
       $mselect = "  SELECT * FROM meetup_pages WHERE id='".$rel->mid."' LIMIT 1";
-      $mobj = mysql_fetch_object(mysql_result($mselect));
+      $mobj = mysql_fetch_object(mysql_query($mselect));
       
       if($mobj->name == $_SESSION['meetup_name'] && $fobj->name == $_SESSION['fb_page_id']){
         $rel_exists = 1;
