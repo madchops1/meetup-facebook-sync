@@ -151,7 +151,15 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         
       }
     
+      .how{
+        color:#666;
+        font-style:italic;
+      }
+    
       .sync-once-button{
+        border-radius:3px;
+        -moz-border-radius:3px;
+        -webkit-border-radius:3px;
         display:none;
         background-color: #A0C500;
         background-image: -moz-linear-gradient(center top , #B6D600, #89B300);
