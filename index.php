@@ -354,7 +354,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
           <input type='text' name='fb_page_id' class='input' value='' /> ex. "474860665902713"
         </div><br>
         
-        <
+        
         <div>
           <input type='submit' class='sync-once-button' value='Sync One Time - Free' />
         </div>
