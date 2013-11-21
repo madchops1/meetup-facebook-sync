@@ -21,6 +21,30 @@ if(strstr($return, "access_token")){
   $tokenArray = explode("=",$returnArray[0]);
   $access_token = $tokenArray[1];
   
+  // -- Successfully retreived access tokens from Meetup and Facebook at this point
+  // Insert FB Page
+  $query = "  INSERT INTO fb_pages 
+              SET 
+              name='".$_SESSION['fb_page_id']."',
+              access_token='".$access_token."'";
+  mysql_query($query);
+  $fid = mysql_insert_id();
+  
+  // Insert MU page
+  $query = "  INSERT INTO meetup_pages 
+              SET 
+              name='".$_SESSION['meetup_name']."',
+              access_token='".$_SESSION['meetup_token']."'";
+  mysql_query($query);
+  $mid = mysql_insert_id();
+  
+  // Connect With the Relational Table
+  $query = "  INSERT INTO fb_meetup_rel
+              SET 
+              fid='".$fid."',
+              mid='".$mid."'";
+  mysql_query($query);
+  
   // Get Facebook Page Events
   //init curl
   $ch = curl_init();
