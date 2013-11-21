@@ -209,7 +209,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       }
       
       .footer-red{
-        width:33.3%;
+        width:33.33%;
         background:#E51937;
         height:5px;
         position:absolute;
@@ -218,21 +218,21 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       }
       
       .footer-blue{
-        width:33.3%;
+        width:33.33%;
         background:#3B5998;
         height:5px;
         position:absolute;
         top:0px;
-        left:33.3%
+        left:33.33%
       }
       
       .footer-yellow{
-        width:33%;
+        width:33.33%;
         background:#FBEC3F;
         height:5px;
         position:absolute;
         top:0px;
-        left:66.6%;
+        left:66.66%;
       }
       
       .anim750{
