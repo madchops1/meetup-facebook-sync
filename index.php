@@ -379,7 +379,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
     </div>
     
     <div class="content">
-    
+      <h2>Used By</h2>
       <table style="width:100%;">
         <tr>
           <td><img src='images/hp_tedx.png' /></td>
