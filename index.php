@@ -99,7 +99,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       }
       
       .form-inner-wrapper{
-        padding:85px;
+        padding:115px 85px 0;
       }
             
       .content{
