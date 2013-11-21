@@ -40,7 +40,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       .form-wrapper{
         margin:0px auto; 
         width:500px; 
-        margin-top:40px; 
+        margin-top:0px; 
         background:#fff; 
         padding:20px; 
         font-size:12px;
@@ -52,6 +52,12 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         margin:100px auto 0 auto;
         display:block;
       }
+      
+      .footer{
+        margin-top:10px;
+        font-size:10px;
+      }
+      
       
       .header h1{
         font-size:20px;
@@ -68,9 +74,15 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       }
       
       .header h1 span.c{
-        font-size:60px;
-        font-style:italic;
-        color:cyan;
+    clear: both;
+    color: #FBEC3F;
+    display: block;
+    font-family: Verdana;
+    font-size: 100px;
+    font-style: italic;
+    letter-spacing: -22px;
+    margin-bottom: -15px;
+    margin-right: -210px;
       }
       
       .anim750{
@@ -90,7 +102,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 	position: relative;
 	width: 180px;
 	height: 180px;
-	margin: -70px 0 0 0;
+	margin: -130px 0 0 0;
   
   backface-visibility: hidden;
   
@@ -267,6 +279,10 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         </div>
         
       </form>
+    </div>
+    
+    <div class='footer'>
+     &copy; <?php date("Y"); ?>. Karl Steltenpohl Development LLC. All Rights Reserved. In No Way Affiliated with Facebook or Meetup.com.
     </div>
 
   </body>
