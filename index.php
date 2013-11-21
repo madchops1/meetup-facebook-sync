@@ -98,7 +98,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       }
       
       .content img:hover{
-        opacity:0.8;
+        opacity:0.6;
       }
       
       
