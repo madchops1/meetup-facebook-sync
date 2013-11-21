@@ -5,6 +5,7 @@ include 'classes.php';
 
 // -- Clear Vars
 $_SESSION['meetup_group_object']   = new stdClass();
+$_SESSION['user_object']           = new stdClass();
 $_SESSION['meetup_name']           = '';
 $_SESSION['fb_page_id']            = '';
 $_SESSION['meetups']               = array();
@@ -15,14 +16,15 @@ $_SESSION['formatted_meetups']     = array();
 $_SESSION['meetup_group_venues']   = array();
 $_SESSION['meetup_token']          = array();
 $_SESSION['refresh_token']         = array();
+$_SESSION['user_email']            = '';
 
 // -- Form Action
-if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
+if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id'] && $_REQUEST['email']){
   
   
   $_SESSION['meetup_name'] = $_REQUEST['meetup_name'];
   $_SESSION['fb_page_id'] = $_REQUEST['fb_page_id'];
-  
+  $_SESSION['user_email'] = $_REQUEST['email'];
   // -- Redirect to the meetup oauth page
   header("LOCATION: https://secure.meetup.com/oauth2/authorize?client_id=".$meetup_app_id."&response_type=code&redirect_uri=".$meetup_redirect_uri."");
   die;
@@ -465,6 +467,12 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         </p>
       
         <form>
+        
+           <div>
+            <label>Email</label>
+            <input type='text' name='email' class='input' value='' /> <br>
+            <label>&nbsp;</label>ex. "tibbertots@gmail.com"
+          </div><br>
           
           <div>
             <label>Meetup Name</label>
@@ -482,14 +490,13 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
             <input type='submit' class='sync-once-button' value='Sync Now - Free' />
           </div>
           
+          <!-- 
           <div>
-            <!-- 
-            <a href="https://stage.wepay.com/subscribe/1422124486/plan/1261354322" id="wepay_widget_anchor_51c8c12ded995" class="wepay-widget-button wepay-green">Subscribe</a><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript" async="" src="https://stage.wepay.com/min/js/widgets.v2.js"></script><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 1261354322,widget_type: "subscription_plan",anchor_id: "wepay_widget_anchor_51c8c12ded995",widget_options: {group_id: 1422124486,show_plan_price: false,reference_id: "",button_text: "Subscribe"}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = 'https://stage.wepay.com/min/js/widgets.v2.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
-            -->
+            
             <a class="wepay-widget-button wepay-green" id="wepay_widget_anchor_528d51205f4a9" href="https://www.wepay.com/subscribe/2010588022/plan/2084467867">Sync Forever</a><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 2084467867,widget_type: "subscription_plan",anchor_id: "wepay_widget_anchor_528d51205f4a9",widget_options: {group_id: 2010588022,show_plan_price: false,reference_id: ""}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = 'https://static.wepay.com/min/js/widgets.v2.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
             
           </div>
-          
+          -->
         </form>
       </div>  
     </div>
@@ -509,6 +516,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       -->
       
       <h2>About:</h2>
+      
       <p>
       Let's say you have a facebook page and/or a meetup.com group. 
       Use this service to sync your events easily in both places. 
@@ -518,18 +526,12 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       </p>
       
       <p>
-      If you wish to sync your current events it is Free to use as many times as you wish. If you want to automate the sync in real time forever, we ask for a $5.00 monthly subscription for as long as you stay in sync.
+      Once your pages are in sync, newly created events from your meetup page will be 
+      automagically copied to your facebook page and vice-versa! So they will stay in sync in 
+      real-time forever. Our sync app runs every 10 minutes so if you don't 
+      see automated results immidiately please wait a few minutes.
       </p>
        
-      <p>
-      If you wish to sync your current events it is Free to use as many times as you wish. If you want to automate the sync in real time forever, we ask for a $5.00 monthly subscription for as long as you stay in sync.
-      </p>
-      
-      <h2>Coming Soon:</h2>
-      <p>
-      Sync with Google Groups, and Sync everything on you're Google Calendar!
-      </p>
-      
     </div>
     
     <div class='big-footer'>
