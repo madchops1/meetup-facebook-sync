@@ -354,11 +354,9 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
           <input type='text' name='fb_page_id' class='input' value='' /> ex. "474860665902713"
         </div><br>
         
-        
         <div>
-          <input type='submit' class='sync-once-button' value='Sync One Time - Free' />
+          <input type='submit' class='sync-once-button' value='Sync' />
         </div>
-        
         
         <div>
           <a class="wepay-widget-button wepay-green" id="wepay_widget_anchor_528d51205f4a9" href="https://www.wepay.com/subscribe/2010588022/plan/2084467867">Sync Forever - $5.00</a><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 2084467867,widget_type: "subscription_plan",anchor_id: "wepay_widget_anchor_528d51205f4a9",widget_options: {group_id: 2010588022,show_plan_price: false,reference_id: ""}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = 'https://static.wepay.com/min/js/widgets.v2.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
