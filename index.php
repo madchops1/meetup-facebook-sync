@@ -32,7 +32,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 
   $( document ).ready(function() {
 
-	  $(".wepay-dialog-close a").on("click",function(){
+	  $( document ).on("click", ".wepay-dialog-close a",function(e){
 		  alert('holy shit!');
 		});
 
