@@ -386,7 +386,15 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
   
     <div class='header'>
     
-      <h1><span class='mm big'>M</span><span class='ff big'>F</span><span class='bb big'>B</span><span class='c'>SYNC</span> <div>Meetup.com <span class='a'>&</span> Facebook <span class='b'>Events</span></div></h1>
+      <h1>
+        <span class='mm big'>M</span>
+        <span class='ff big'>F</span>
+        <span class='bb big'>B</span>
+        <span class='c'>SYNC</span> 
+        <div>
+          <span class='b'>Sync</span> Meetup.com <span class='a'>&</span> Facebook <span class='b'>Events</span>
+        </div>
+      </h1>
       
       <div id="Awesome" class="anim750">
 	      <div class="reveal circle_wrapper">
