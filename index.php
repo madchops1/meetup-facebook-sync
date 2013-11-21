@@ -45,25 +45,30 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         padding:20px; 
         font-size:12px;
         border-radius:20px;
-        
       }
       
       .header{
         width:500px;
-        margin:0px auto;
+        margin:20px auto 0 auto;
         display:block;
-        
       }
       
       .header h1{
         font-size:24px;
+        padding:0px;
       }
       
+      .header h1 span.a{
+        font-style:italic;
+      }
       
+      .header h1 span.b{
+        font-size:16px;
+      }
       
-     .anim750{
-  transition: all 750ms ease-in-out;
-}
+      .anim750{
+        transition: all 750ms ease-in-out;
+      }
 
 #Awesome{
 	position: relative;
