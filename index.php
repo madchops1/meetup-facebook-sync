@@ -1,5 +1,6 @@
 <?php
 session_start();
+include config.php;
 
 // -- Clear Vars
 $_SESSION['meetup_group_object']   = new stdClass();
@@ -75,7 +76,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
   <script>
     window.fbAsyncInit = function() {
     FB.init({
-      appId      : '{your-app-id}',
+      appId      : '<?php echo $fb_app_id; ?>',
       status     : true, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
       xfbml      : true  // parse XFBML
