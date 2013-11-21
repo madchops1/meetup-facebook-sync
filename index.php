@@ -37,6 +37,15 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         background:#f5f5f5;
       }
       
+      p{
+        font-size:14px;
+        
+      }
+      
+      p a{
+        color:#666;
+      }
+      
       .form-wrapper{
         margin:0px auto; 
         width:500px; 
@@ -261,10 +270,6 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
     
   
     <div class='form-wrapper'>
-      <p>
-      This is a service provided by <a href='http://webksd.com'>KSD</a>, created by <a href='http://karlsteltenpohl.com'>Karl Steltenpohl</a> (founder of the <a href='http://meetup.com/Chicago-Foosball'>Chicago Foosball Meetup</a>).
-      </p>
-      <p>Enter your meetup group url, your facebook page id, and click "Sync". We ask for a $5.00 monthly subscription as the pages will stay synced in real-time as long as you're a subscriber!</p>
       <form>
         
         <div>
@@ -286,6 +291,18 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         </div>
         
       </form>
+      
+      <h2>About</h2>
+      <p>
+      This is a service provided by <a href='http://webksd.com'>KSD</a>, created by <a href='http://karlsteltenpohl.com'>Karl Steltenpohl</a> (founder of the <a href='http://meetup.com/Chicago-Foosball'>Chicago Foosball Meetup</a>).
+      </p>
+      
+      <p>
+      Enter your meetup group url, your facebook page id, and click "Sync". 
+      We ask for a $5.00 monthly subscription as the pages will stay synced in real-time as 
+      long as you're a subscriber!
+      </p>
+      
     </div>
     
     <div class='footer'>
