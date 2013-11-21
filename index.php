@@ -40,7 +40,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       .form-wrapper{
         margin:0px auto; 
         width:500px; 
-        margin-top:100px; 
+        margin-top:40px; 
         background:rgba(100,100,100,0.6); 
         padding:20px; 
         font-size:12px;
@@ -49,7 +49,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       
       .header{
         width:500px;
-        margin:40px auto 0 auto;
+        margin:100px auto 0 auto;
         display:block;
       }
       
