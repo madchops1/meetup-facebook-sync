@@ -376,7 +376,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       
       <p>
       <span class='how'>HOW IT WORKS:</span><br>
-      Enter your meetup group url, your facebook page id, and click "Sync". Subscribe if you want your events synced in real-time forever.
+      Enter your meetup group url, your facebook page id, and click "Sync". Subscribe if you want your events to be in sync in real-time forever.
       </p>
     
       <form>
