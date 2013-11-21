@@ -142,26 +142,26 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       }
       
       .header h1 span.c{
-    color: #FBEC3F;
-    display: block;
-    font-family: Verdana;
-    font-size: 50px;
-    font-style: italic;
-    letter-spacing: -11px;
-    margin-bottom: -15px;
-    margin-right: -210px;
-    text-shadow: 0 1px 0 #000000;
+        color: #FBEC3F;
+        display: block;
+        font-family: Verdana;
+        font-size: 50px;
+        font-style: italic;
+        letter-spacing: -11px;
+        margin-bottom: -15px;
+        margin-right: -210px;
+        text-shadow: 0 1px 0 #000000;
     
       }
       
-            .header h1 span.big{
-    display: block;
-    float: left;
-    font-family: Verdana;
-    font-size: 100px;
-    font-style: italic;
-    letter-spacing: -17px;
-    text-shadow: 0 1px 1px #000000;
+      .header h1 span.big{
+        display: block;
+        float: left;
+        font-family: Verdana;
+        font-size: 100px;
+        font-style: italic;
+        letter-spacing: -17px;
+        text-shadow: 0 1px 1px #000000;
     
       }
       
@@ -184,6 +184,13 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       
       .header h1 div{
         clear:both;
+        color: #666666;
+        display: block;
+        font-family: georgia;
+        font-style: italic;
+        font-weight: lighter;
+        position: relative;
+        top: -16px;
       }
       
       .anim750{
