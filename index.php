@@ -1,6 +1,6 @@
 <?php
 session_start();
-include config.php;
+include 'config.php';
 
 // -- Clear Vars
 $_SESSION['meetup_group_object']   = new stdClass();
@@ -20,7 +20,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
   $_SESSION['fb_page_id'] = $_REQUEST['fb_page_id'];
   
   // -- Redirect to the meetup oauth page
-  header("LOCATION: https://secure.meetup.com/oauth2/authorize?client_id=drdhpm0c4l1haeem1evkcdk2h5&response_type=code&redirect_uri=http://mfbsync.karlsteltenpohl.com/meetup-redirect.php");
+  header("LOCATION: https://secure.meetup.com/oauth2/authorize?client_id=".$meetup_app_id."&response_type=code&redirect_uri=".$meetup_redirect_uri."");
   die;
 }
 
