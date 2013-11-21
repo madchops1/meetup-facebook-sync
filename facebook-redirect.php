@@ -68,6 +68,8 @@ if(strstr($return, "access_token")){
       $_SESSION['user_object'] = $user_result;
     }
     
+    
+    
     // -- Loop Through this users relationships and see if he has this one already
     $rel_exists = 0;
     $rel_select = "  SELECT * FROM fb_meetup_rel WHERE uid='".$_SESSION['user_object']->id."'";
@@ -83,6 +85,10 @@ if(strstr($return, "access_token")){
         $rel_exists = 1;
       }
     }
+    
+    echo "User<br>";
+    var_dump($_SESSION['user_object']);
+    echo "<br><br>Rel Exists: ".$rel_exists."";
     
     if($rel_exists == 0){
       // -- Insert FB Page
