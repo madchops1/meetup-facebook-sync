@@ -427,15 +427,27 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       </table>
       -->
       
-      <h2>About</h2>
+      <h2>About:</h2>
       <p>
-      This service is provided by <a href='http://webksd.com'>KSD</a> and created by <a href='http://karlsteltenpohl.com'>Karl Steltenpohl</a> (founder of the <a href='http://meetup.com/Chicago-Foosball'>Chicago Foosball Meetup</a>).
+      Let's say you have a facebook page and/or a meetup.com group. 
+      Use this service to sync your events easily in both places. 
+      It will copy events from your meetup group page to your facebook group page and vice-versa. 
+      You must have permission to create events in both places. 
+      Provided by <a href='http://webksd.com'>KSD</a> and created by <a href='http://karlsteltenpohl.com'>Karl Steltenpohl</a> (founder of the <a href='http://meetup.com/Chicago-Foosball'>Chicago Foosball Meetup</a>).
       </p>
       
       <p>
-      We ask for a $5.00 monthly subscription if the pages will stay synced in real-time forever!
+      If you wish to sync your current events it is Free to use as many times as you wish. If you want to automate the sync in real time forever, we ask for a $5.00 monthly subscription for as long as you stay in sync.
+      </p>
+       
+      <p>
+      If you wish to sync your current events it is Free to use as many times as you wish. If you want to automate the sync in real time forever, we ask for a $5.00 monthly subscription for as long as you stay in sync.
       </p>
       
+      <h2>Coming Soon:</h2>
+      <p>
+      Sync with Google Groups, and Sync everything on you're Google Calendar!
+      </p>
       
     </div>
     
