@@ -157,17 +157,13 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       }
       
             .header h1 span.big{
-    clear: both;
-    color: #FBEC3F;
     display: block;
+    float: left;
     font-family: Verdana;
     font-size: 100px;
     font-style: italic;
-    letter-spacing: -22px;
-    margin-bottom: -15px;
-    margin-right: -210px;
-    
-    text-shadow:0px 1px 1px #000;
+    letter-spacing: -17px;
+    text-shadow: 0 1px 1px #000000;
     
       }
       
