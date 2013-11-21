@@ -208,7 +208,7 @@ if(strstr($return, "access_token")){
       if($facebook_event->title == $meetup_event->title){
         $mu_event_synced = 1;
         break;
-      }  
+      }
     }
     
     if($mu_event_synced == 0){
