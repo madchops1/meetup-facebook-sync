@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'config.php';
+include 'classes.php';
 
 // -- Clear Vars
 $_SESSION['meetup_group_object']   = new stdClass();
@@ -15,6 +16,7 @@ $_SESSION['meetup_group_venues']   = array();
 
 // -- Form Action
 if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
+  
   
   $_SESSION['meetup_name'] = $_REQUEST['meetup_name'];
   $_SESSION['fb_page_id'] = $_REQUEST['fb_page_id'];
