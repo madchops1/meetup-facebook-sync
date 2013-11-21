@@ -143,6 +143,9 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         transition: all 750ms ease-in-out;
       }
 
+      form{
+        margin-top:20px;
+      }
       
       form label{
         display:block;
@@ -153,7 +156,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
     
       .how{
         color:#666;
-        font-style:italic;
+        font-weight:bold;
       }
     
       .sync-once-button{
