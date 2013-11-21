@@ -1,6 +1,6 @@
 <?php  
 
-mail('karl@webksd.com','Cron From MFBsync Works!','asdfasdf asdf asdfasdf asdas dfasdfadfs');
+mail('ksteltenpohl@musicdealers.com','Cron From MFBsync Works!','asdfasdf asdf asdfasdf asdas dfasdfadfs');
 
 /*
 // -- Loop Through Relationships
