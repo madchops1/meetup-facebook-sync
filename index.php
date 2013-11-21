@@ -32,9 +32,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 
   $( document ).ready(function() {
 
-	  $( document ).on("click", ".wepay-dialog-close a",function(e){
-		  alert('holy shit!');
-		});
+	  
 
 	  $('.input').keyup(function(event) {
 
@@ -50,6 +48,10 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 		
 
   });
+
+  $( document ).on("click", ".wepay-dialog-close a",function(e){
+	  alert('holy shit!');
+	});
   </script>
   
   </head>
