@@ -453,7 +453,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
     
     <div class='footer'>
      &copy; <?php echo date("Y"); ?> Karl Steltenpohl Development LLC. All Rights Reserved. <br>
-     In No Way Affiliated with Facebook or Meetup.com.<br>
+     In No Way Affiliated with Facebook, Meetup.com, or Google.<br>
      <a href='mailto:syncsupport+karl@webksd.com;'>Get Help!</a>
     </div>
 
