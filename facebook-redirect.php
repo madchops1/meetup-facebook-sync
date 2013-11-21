@@ -29,7 +29,6 @@ if(strstr($return, "access_token")){
               `access_token`='".$access_token."'";
   mysql_query($query);
   
-  if(mysql_error){die(mysql_error());}
   
   $fid = mysql_insert_id();
   
