@@ -63,7 +63,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       
       .header{
         width:500px;
-        margin:100px auto 0 auto;
+        margin:60px auto 0 auto;
         display:block;
       }
       
