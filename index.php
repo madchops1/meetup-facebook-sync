@@ -534,6 +534,10 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
     </div>
     
     <div class='big-footer'>
+      <div class='footer-red'></div>
+      <div class='footer-blue'></div>
+      <div class='footer-yellow'></div>
+    
       <div class='footer'>
        &copy; <?php echo date("Y"); ?> Karl Steltenpohl Development LLC. All Rights Reserved. <br>
        In No Way Affiliated with Facebook, Meetup.com, or Google.<br>
