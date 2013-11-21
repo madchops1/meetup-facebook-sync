@@ -148,10 +148,12 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       }
       
       h2{
-        font-size:20px;
-        font-color:#666;
-        margin:0px;
-        padding:0px;
+        color: #999999;
+        font-family: georgia;
+        font-size: 14px;
+        font-style: italic;
+        margin: 0;
+        padding: 0;
       }
       
       form label{
@@ -389,7 +391,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
     </div>
     
     <div class="content">
-      <h2>Used By</h2>
+      <h2>Happily Used By:</h2>
       <table style="width:100%;">
         <tr>
           <td><img src='images/hp_tedx.png' /></td>
