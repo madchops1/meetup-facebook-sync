@@ -30,7 +30,6 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
   <meta name="keywords" content="Sync Facebook Meetup, Sync Facebook Events, Sync Meetup Events, Synchronize Facebook and Meetup, Sync Facebook and Meetup, Meetup Group and Facebook Events">
   <meta name="description" content="Synk Facebook Page and Meetup.com Group Events">
   <meta name="author" content="Karl Steltenpohl">
-  <meta http-equiv="refresh" content="30">
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script>
