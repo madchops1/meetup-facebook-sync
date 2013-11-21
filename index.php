@@ -27,6 +27,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 <html>
   <head>
   
+  <link href="http://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet" type="text/css">
   
   
   </head>
@@ -47,10 +48,107 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         border-radius:20px;
         
       }
+      
+      .stickercontainer {
+	position: relative;
+	top: 50px;
+	width: 400px;
+	height: 400px;
+	margin: auto;
+	font-size: 400px;
+	-moz-transform: rotate(-25deg);
+	-webkit-transform: rotate(-25deg);
+	-o-transform: rotate(-25deg);
+	transform: rotate(-25deg);
+}
+
+.sticker {
+	position: absolute;
+	width: 95%;
+	height: 95%;
+	top: -10%;
+	left: 2.5%;
+	background: -moz-radial-gradient(center, ellipse cover, #3f82e7 0%, #000 400%);
+	background: -webkit-radial-gradient(center, ellipse cover, #3f82e7 0%, #000 400%);
+	background: -o-radial-gradient(center, ellipse cover, #3f82e7 0%, #000 400%);
+	background: radial-gradient(center, ellipse cover, #3f82e7 0%, #000 400%);
+	box-shadow: 0px 1px 5px -1px #000;
+	border-radius: 50%;
+}
+
+.stickercrop {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.foldshadow {
+	position: absolute;
+	width: 80%;
+	height: 95%;
+	top: -85.5%;
+	left: 10%;
+	background-color: #000;
+	box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+	border-radius: 50%;
+}
+
+.foldshadowcrop {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.fold {
+	position: absolute;
+	width: 95%;
+	height: 95%;
+	top: -85%;
+	left: 2.5%;
+	background: -moz-linear-gradient(top, #000 30%, #6899e3 100%);
+	background: -webkit-linear-gradient(top, #000 30%, #6899e3 100%);
+	background: -o-linear-gradient(top, #000 30%, #6899e3 100%);
+	background: linear-gradient(top, #000 30%, #6899e3 100%);
+	box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+}
+
+.foldcrop {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.text {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 22%;
+	overflow: hidden;
+	text-align: center;
+	font-size: 28%;
+	color: #2660b9;
+	text-shadow: 0px 2px 3px #6899e3;
+	font-family: 'Alfa Slab One', cursive;
+}
     </style>
   
-    <div class='form-wrapper'>
+    <div class='header'>
       <h1>Meetup.com <=> Facebook Event Sync</h1>
+    </div>
+    
+    
+    <div class="stickercontainer">
+    <div class="stickercrop"><div class="sticker"></div></div>
+    <div class="foldshadowcrop"><div class="foldshadow"></div></div>
+    <div class="foldcrop"><div class="fold"></div></div>
+    <div class="text">CSS3</div>
+    </div>
+  
+    <div class='form-wrapper'>
       <p>Enter your meetup group url, your facebook page id, andclick "Sync". All upcoming events will be synced on both sites!</p>
       <form>
         
