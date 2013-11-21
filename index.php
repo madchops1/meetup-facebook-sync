@@ -32,22 +32,21 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 
   $( document ).ready(function() {
 
-	  
+	  $(window).keydown(function(event){
+	    if(event.keyCode == 13) {
+	      event.preventDefault();
+	      return false;
+	    }
+	  });
 
+	  /*
 	  $('.input').keyup(function(event) {
 		    if(event.keyCode == 13) {
 		    	  console.log('clicked enter');
-			    
-		        //checked = $('#beveiligdj').is(':checked');
             event.preventDefault();
-		        //if(checked) {
-		        //    $('#beveiligdn').focus();
-		        //}
 		    }
-
-		   });
-		
-
+		 });
+		 */
   });
 
   $( document )
