@@ -147,6 +147,13 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         margin-top:20px;
       }
       
+      h2{
+        font-size:20px;
+        font-color:#666;
+        margin:0px;
+        padding:0px;
+      }
+      
       form label{
         display:block;
         float:left;
