@@ -49,90 +49,134 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         
       }
       
-      .stickercontainer {
+     .anim750{
+  transition: all 750ms ease-in-out;
+}
+
+#Awesome{
 	position: relative;
-	top: 50px;
-	width: 400px;
-	height: 400px;
-	margin: auto;
-	font-size: 400px;
-	-moz-transform: rotate(-25deg);
-	-webkit-transform: rotate(-25deg);
-	-o-transform: rotate(-25deg);
-	transform: rotate(-25deg);
+	width: 180px;
+	height: 180px;
+	margin: 0 auto;
+  
+  backface-visibility: hidden;
 }
 
-.sticker {
-	position: absolute;
-	width: 95%;
-	height: 95%;
-	top: -10%;
-	left: 2.5%;
-	background: -moz-radial-gradient(center, ellipse cover, #3f82e7 0%, #000 400%);
-	background: -webkit-radial-gradient(center, ellipse cover, #3f82e7 0%, #000 400%);
-	background: -o-radial-gradient(center, ellipse cover, #3f82e7 0%, #000 400%);
-	background: radial-gradient(center, ellipse cover, #3f82e7 0%, #000 400%);
-	box-shadow: 0px 1px 5px -1px #000;
-	border-radius: 50%;
+#Awesome .sticky{
+	transform: rotate(45deg);
 }
 
-.stickercrop {
+#Awesome:hover .sticky{
+	transform: rotate(10deg);
+}
+
+#Awesome .sticky{
 	position: absolute;
-	width: 100%;
-	height: 100%;
+	top: 0;
+	left: 0;
+	width:180px;
+	height: 180px;
+}
+
+#Awesome .reveal .circle{
+	box-shadow: 0 1px 0px rgba(0,0,0,.15);
+  
+  font-family: 'helvetica neue', arial;
+  font-weight: 200;
+  line-height: 140px;
+  text-align: center;
+  
+  cursor: pointer;
+}
+
+#Awesome .reveal .circle{
+	background: #fafafa;
+}
+
+#Awesome .circle_wrapper{
+	position: absolute;
+	width: 180px;
+	height: 180px;
+	left: 0px;
+	top: 0px;
 	overflow: hidden;
 }
 
-.foldshadow {
+#Awesome .circle{
 	position: absolute;
-	width: 80%;
-	height: 95%;
-	top: -85.5%;
-	left: 10%;
-	background-color: #000;
-	box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
-	border-radius: 50%;
+	width: 140px;
+	height:  140px;
+	margin: 20px;
+	
+	border-radius: 999px;
 }
 
-.foldshadowcrop {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
+#Awesome .back{
+	height: 10px;
+	top: 30px;
 }
 
-.fold {
-	position: absolute;
-	width: 95%;
-	height: 95%;
-	top: -85%;
-	left: 2.5%;
-	background: -moz-linear-gradient(top, #000 30%, #6899e3 100%);
-	background: -webkit-linear-gradient(top, #000 30%, #6899e3 100%);
-	background: -o-linear-gradient(top, #000 30%, #6899e3 100%);
-	background: linear-gradient(top, #000 30%, #6899e3 100%);
-	box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.1);
-	border-radius: 50%;
+#Awesome:hover .back{
+	height: 90px;
+	top: 110px;
 }
 
-.foldcrop {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
+#Awesome .back .circle{
+	margin-top: -130px;
+	background-color: #fbec3f;
+
+	background-image: -webkit-linear-gradient(bottom, rgba(251,236,63,.0), rgba(255,255,255,.8));
 }
 
-.text {
+#Awesome:hover .back .circle{
+	margin-top: -50px;
+}
+
+#Awesome .front{
+	height: 150px;
+	bottom: 0;
+	top: auto;
+	
+	-webkit-box-shadow: 0 -140px 20px -140px rgba(0,0,0,.3);
+}
+
+#Awesome:hover .front{
+	height: 70px;
+	
+	-webkit-box-shadow: 0 -60px 10px -60px rgba(0,0,0,.1);
+}
+
+#Awesome .front .circle{
+	margin-top: -10px;
+	background: #fbec3f;
+
+	background-image: -webkit-linear-gradient(bottom, rgba(251,236,63,.0) 75%, #f7bb37 95%);
+  background-image: -moz-linear-gradient(bottom, rgba(251,236,63,.0) 75%, #f7bb37 95%);
+  background-image: linear-gradient(bottom, rgba(251,236,63,.0) 75%, #f7bb37 95%);
+}
+
+#Awesome h4{
+  font-family: 'helvetica neue', arial;
+  font-weight: 200;
+  text-align: center;
 	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 22%;
-	overflow: hidden;
-	text-align: center;
-	font-size: 28%;
-	color: #2660b9;
-	text-shadow: 0px 2px 3px #6899e3;
-	font-family: 'Alfa Slab One', cursive;
+	width: 180px;
+	height: 140px;
+  line-height: 140px;
+	
+	transition: opacity 50ms linear 400ms;
+}
+
+#Awesome:hover h4{
+	opacity: 0;
+	
+	transition: opacity 50ms linear 300ms;
+}
+
+#Awesome:hover .front .circle{
+	margin-top: -90px;
+	background-color: #e2d439;
+	background-position: 0 100px;
 }
     </style>
   
@@ -141,12 +185,27 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
     </div>
     
     
-    <div class="stickercontainer">
-    <div class="stickercrop"><div class="sticker"></div></div>
-    <div class="foldshadowcrop"><div class="foldshadow"></div></div>
-    <div class="foldcrop"><div class="fold"></div></div>
-    <div class="text">CSS3</div>
-    </div>
+    <div id="Awesome" class="anim750">
+	
+  <div class="reveal circle_wrapper">
+		<div class="circle">Hello!</div>
+	</div>
+						
+	<div class="sticky anim750">
+		<div class="front circle_wrapper anim750">
+			<div class="circle anim750"></div>
+	  </div>
+	</div>
+	
+  <h4>Peel Me!</h4>
+						
+  <div class="sticky anim750">
+		<div class="back circle_wrapper anim750">
+			<div class="circle anim750"></div>
+		</div>
+	</div>
+						
+</div>
   
     <div class='form-wrapper'>
       <p>Enter your meetup group url, your facebook page id, andclick "Sync". All upcoming events will be synced on both sites!</p>
