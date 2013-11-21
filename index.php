@@ -27,7 +27,6 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 <html>
   <head>
   
-  <link href="http://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet" type="text/css">
   
   
   </head>
@@ -41,13 +40,26 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       .form-wrapper{
         margin:0px auto; 
         width:500px; 
-        margin-top:200px; 
+        margin-top:-40px; 
         background:rgba(100,100,100,0.6); 
         padding:20px; 
         font-size:12px;
         border-radius:20px;
         
       }
+      
+      .header{
+        width:500px;
+        margin:0px auto;
+        display:block;
+        
+      }
+      
+      .header h1{
+        font-size:24px;
+      }
+      
+      
       
      .anim750{
   transition: all 750ms ease-in-out;
@@ -181,14 +193,14 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
     </style>
   
     <div class='header'>
-      <h1>Meetup.com <=> Facebook Event Sync</h1>
+      <h1>Meetup.com <span class='a'>&</span> Facebook <span class='b'>Event Sync</span></h1>
     </div>
     
     
     <div id="Awesome" class="anim750">
 	
   <div class="reveal circle_wrapper">
-		<div class="circle">Hello!</div>
+		<div class="circle">Great Service!</div>
 	</div>
 						
 	<div class="sticky anim750">
@@ -197,7 +209,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 	  </div>
 	</div>
 	
-  <h4>Peel Me!</h4>
+  <h4>$5.00 a month</h4>
 						
   <div class="sticky anim750">
 		<div class="back circle_wrapper anim750">
