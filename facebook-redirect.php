@@ -86,9 +86,11 @@ if(strstr($return, "access_token")){
       }
     }
     
+    /* TESTING
     echo "User<br>";
     var_dump($_SESSION['user_object']);
     echo "<br><br>Rel Exists: ".$rel_exists."";
+    */
     
     if($rel_exists == 0){
       // -- Insert FB Page
