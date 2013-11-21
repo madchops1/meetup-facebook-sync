@@ -130,6 +130,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       .header h1{
         font-size:20px;
         padding:0px;
+        margin:0px;
       }
       
       .header h1 span.a{
@@ -259,7 +260,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 	position: relative;
 	width: 180px;
 	height: 180px;
-	margin: -130px 0 0 0;
+	margin: -150px 0 0 0;
   
   backface-visibility: hidden;
   
