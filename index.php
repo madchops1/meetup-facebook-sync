@@ -116,10 +116,30 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       }
     
       .sync-once-button{
-        border:1px solid #333;
-        background:#ccc;
-        padding:10px;
+        background-color: #A0C500;
+        background-image: -moz-linear-gradient(center top , #B6D600, #89B300);
+        background-repeat: repeat-x;
+        border: 1px solid #759A00;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset;
+        color: #FFFFFF;
+        text-shadow: 0 -1px 0 #5A7600;
       }    
+      
+      .sync-once-button:hover{
+        background-color: #B4DE00;
+        background-image: -moz-linear-gradient(center top , #CCF000, #9DCD00);
+        background-repeat: repeat-x;
+        color: #FFFFFF;
+      }
+      
+      .sync-once-button:hover:active, .sync-once-button:hover:focus {
+        background-color: #A0C500;
+        background-image: -moz-linear-gradient(center top , #89B300, #B6D600);
+        background-repeat: repeat-x;
+        border: 1px solid #759A00;
+        box-shadow: none;
+        color: #FFFFFF;
+      }
       
 #Awesome{
 	position: relative;
