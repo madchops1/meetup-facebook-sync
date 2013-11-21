@@ -308,7 +308,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 	position: relative;
 	width: 180px;
 	height: 180px;
-	margin: -150px 0 0 0;
+	margin: -115px 30px 0 0;
   
   backface-visibility: hidden;
   
