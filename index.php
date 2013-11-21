@@ -49,6 +49,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 		 */
   });
 
+  /*
   $( document )
   .on("click", ".wepay-dialog-close a",function(e){
 	  //alert('holy shit!');
@@ -59,6 +60,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 		$(".sync-once-button").show();
 		$(".wepay-widget-button").hide();
   });
+  */
   </script>
   
   </head>
@@ -185,7 +187,9 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         color: #FFFFFF;
         text-shadow: 0 -1px 0 #5A7600;
         cursor:pointer;
-        padding:10px 10px;
+        padding:11px 6px;
+        float:left;
+        margin-right:10px;
       }    
       
       .sync-once-button:hover{
