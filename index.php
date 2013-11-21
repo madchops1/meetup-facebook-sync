@@ -471,38 +471,38 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
   
     <div class='form-wrapper'>
     
+      <div class='form-inner-wrapper'>
+        <p>
+        <span class='how'>HOW IT WORKS:</span><br>
+        Enter your meetup group url, your facebook page id, and click "Sync". Subscribe if you want your events to be in sync in real-time forever.
+        </p>
       
-      <p>
-      <span class='how'>HOW IT WORKS:</span><br>
-      Enter your meetup group url, your facebook page id, and click "Sync". Subscribe if you want your events to be in sync in real-time forever.
-      </p>
-    
-      <form>
-        
-        <div>
-          <label>Meetup Name</label>
-          <input type='text' name='meetup_name' class='input' value='' /> ex. "Chicago-Foosball"
-        </div><br>
-        
-        <div>
-          <label>FB Page ID</label>
-          <input type='text' name='fb_page_id' class='input' value='' /> ex. "474860665902713"
-        </div><br>
-        
-        <div>
-          <input type='submit' class='sync-once-button' value='Sync Now - Free' />
-        </div>
-        
-        <div>
-          <!-- 
-          <a href="https://stage.wepay.com/subscribe/1422124486/plan/1261354322" id="wepay_widget_anchor_51c8c12ded995" class="wepay-widget-button wepay-green">Subscribe</a><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript" async="" src="https://stage.wepay.com/min/js/widgets.v2.js"></script><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 1261354322,widget_type: "subscription_plan",anchor_id: "wepay_widget_anchor_51c8c12ded995",widget_options: {group_id: 1422124486,show_plan_price: false,reference_id: "",button_text: "Subscribe"}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = 'https://stage.wepay.com/min/js/widgets.v2.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
-          -->
-          <a class="wepay-widget-button wepay-green" id="wepay_widget_anchor_528d51205f4a9" href="https://www.wepay.com/subscribe/2010588022/plan/2084467867">Sync Forever</a><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 2084467867,widget_type: "subscription_plan",anchor_id: "wepay_widget_anchor_528d51205f4a9",widget_options: {group_id: 2010588022,show_plan_price: false,reference_id: ""}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = 'https://static.wepay.com/min/js/widgets.v2.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
+        <form>
           
-        </div>
-        
-      </form>
-      
+          <div>
+            <label>Meetup Name</label>
+            <input type='text' name='meetup_name' class='input' value='' /> ex. "Chicago-Foosball"
+          </div><br>
+          
+          <div>
+            <label>FB Page ID</label>
+            <input type='text' name='fb_page_id' class='input' value='' /> ex. "474860665902713"
+          </div><br>
+          
+          <div>
+            <input type='submit' class='sync-once-button' value='Sync Now - Free' />
+          </div>
+          
+          <div>
+            <!-- 
+            <a href="https://stage.wepay.com/subscribe/1422124486/plan/1261354322" id="wepay_widget_anchor_51c8c12ded995" class="wepay-widget-button wepay-green">Subscribe</a><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript" async="" src="https://stage.wepay.com/min/js/widgets.v2.js"></script><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 1261354322,widget_type: "subscription_plan",anchor_id: "wepay_widget_anchor_51c8c12ded995",widget_options: {group_id: 1422124486,show_plan_price: false,reference_id: "",button_text: "Subscribe"}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = 'https://stage.wepay.com/min/js/widgets.v2.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
+            -->
+            <a class="wepay-widget-button wepay-green" id="wepay_widget_anchor_528d51205f4a9" href="https://www.wepay.com/subscribe/2010588022/plan/2084467867">Sync Forever</a><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 2084467867,widget_type: "subscription_plan",anchor_id: "wepay_widget_anchor_528d51205f4a9",widget_options: {group_id: 2010588022,show_plan_price: false,reference_id: ""}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = 'https://static.wepay.com/min/js/widgets.v2.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
+            
+          </div>
+          
+        </form>
+      </div>  
     </div>
     
     
