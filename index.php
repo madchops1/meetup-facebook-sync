@@ -40,7 +40,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       .form-wrapper{
         margin:0px auto; 
         width:500px; 
-        margin-top:-40px; 
+        margin-top:40px; 
         background:rgba(100,100,100,0.6); 
         padding:20px; 
         font-size:12px;
@@ -77,6 +77,8 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 	margin: 0 auto;
   
   backface-visibility: hidden;
+  
+  float:right;
 }
 
 #Awesome .sticky{
@@ -198,31 +200,33 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
     </style>
   
     <div class='header'>
+    
       <h1>Meetup.com <span class='a'>&</span> Facebook <span class='b'>Event Sync</span></h1>
+      
+      <div id="Awesome" class="anim750">
+	      <div class="reveal circle_wrapper">
+      		<div class="circle">Great Service!</div>
+      	</div>
+      						
+      	<div class="sticky anim750">
+      		<div class="front circle_wrapper anim750">
+      			<div class="circle anim750"></div>
+      	  </div>
+      	</div>
+      	
+        <h4>$5.00 a month</h4>
+      						
+        <div class="sticky anim750">
+      		<div class="back circle_wrapper anim750">
+      			<div class="circle anim750"></div>
+      		</div>
+      	</div>
+      </div>
+      
     </div>
     
     
-    <div id="Awesome" class="anim750">
-	
-  <div class="reveal circle_wrapper">
-		<div class="circle">Great Service!</div>
-	</div>
-						
-	<div class="sticky anim750">
-		<div class="front circle_wrapper anim750">
-			<div class="circle anim750"></div>
-	  </div>
-	</div>
-	
-  <h4>$5.00 a month</h4>
-						
-  <div class="sticky anim750">
-		<div class="back circle_wrapper anim750">
-			<div class="circle anim750"></div>
-		</div>
-	</div>
-						
-</div>
+    
   
     <div class='form-wrapper'>
       <p>Enter your meetup group url, your facebook page id, andclick "Sync". All upcoming events will be synced on both sites!</p>
