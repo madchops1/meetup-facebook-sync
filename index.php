@@ -156,6 +156,38 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
     
       }
       
+            .header h1 span.big{
+    clear: both;
+    color: #FBEC3F;
+    display: block;
+    font-family: Verdana;
+    font-size: 100px;
+    font-style: italic;
+    letter-spacing: -22px;
+    margin-bottom: -15px;
+    margin-right: -210px;
+    
+    text-shadow:0px 1px 1px #000;
+    
+      }
+      
+      .header h1 span.mm{
+        color: #E51937;
+    
+      }
+      
+      .header h1 span.ff{
+        color: #3B5998;
+    
+    
+      }
+      
+      .header h1 span.bb{
+        color: #3B5998;
+    
+    
+      }
+      
       .anim750{
         transition: all 750ms ease-in-out;
       }
@@ -349,7 +381,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
   
     <div class='header'>
     
-      <h1><span class='c'>SYNC</span> Meetup.com <span class='a'>&</span> Facebook <span class='b'>Events</span></h1>
+      <h1><span class='mm big'>M</span><span class='ff big'>F</span><span class='bb big'>B</span><span class='c'>SYNC</span> Meetup.com <span class='a'>&</span> Facebook <span class='b'>Events</span></h1>
       
       <div id="Awesome" class="anim750">
 	      <div class="reveal circle_wrapper">
