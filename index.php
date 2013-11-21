@@ -182,6 +182,10 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
     
       }
       
+      .header h1 div{
+        clear:both;
+      }
+      
       .anim750{
         transition: all 750ms ease-in-out;
       }
