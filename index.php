@@ -54,8 +54,9 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       }
       
       .footer{
-        margin-top:10px;
         font-size:10px;
+        width:500px;
+        margin:10px auto;
       }
       
       
@@ -83,6 +84,9 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
     letter-spacing: -22px;
     margin-bottom: -15px;
     margin-right: -210px;
+    
+    text-shadow:0px 1px 1px #000;
+    
       }
       
       .anim750{
@@ -282,7 +286,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
     </div>
     
     <div class='footer'>
-     &copy; <?php date("Y"); ?>. Karl Steltenpohl Development LLC. All Rights Reserved. In No Way Affiliated with Facebook or Meetup.com.
+     &copy; <?php echo date("Y"); ?> Karl Steltenpohl Development LLC. All Rights Reserved. <br>In No Way Affiliated with Facebook or Meetup.com.
     </div>
 
   </body>
