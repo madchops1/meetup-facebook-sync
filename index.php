@@ -56,6 +56,11 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         border-radius:20px;
       }
       
+      .content{
+        width:500px;
+        margin:20px auto;
+      }
+      
       .header{
         width:500px;
         margin:100px auto 0 auto;
@@ -297,6 +302,10 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         
       </form>
       
+    </div>
+    
+    <div class="content">
+    
       <h2>About Us</h2>
       <p>
       This service is provided by <a href='http://webksd.com'>KSD</a> and created by <a href='http://karlsteltenpohl.com'>Karl Steltenpohl</a> (founder of the <a href='http://meetup.com/Chicago-Foosball'>Chicago Foosball Meetup</a>).
