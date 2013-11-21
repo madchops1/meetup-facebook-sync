@@ -90,12 +90,17 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         margin:0px auto; 
         width:500px; 
         margin-top:0px; 
-        background:#fff; 
-        padding:20px; 
+        background:#333; 
         font-size:12px;
-        border-radius:3px;
+        border-radius:300px;
+        color:#fff;
+        
       }
       
+      .form-inner-wrapper{
+        padding:30px;
+      }
+            
       .content{
         width:500px;
         margin:20px auto;
