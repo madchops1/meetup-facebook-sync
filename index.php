@@ -97,6 +97,11 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
         opacity:0.5;
       }
       
+      .content img:hover{
+        opacity:0.8;
+      }
+      
+      
       .header{
         width:500px;
         margin:40px auto 0 auto;
@@ -419,5 +424,6 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
      <a href='mailto:syncsupport+karl@webksd.com;'>Get Help!</a>
     </div>
 
+    
   </body>
 </html>
