@@ -40,7 +40,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       .form-wrapper{
         margin:0px auto; 
         width:500px; 
-        margin-top:40px; 
+        margin-top:100px; 
         background:rgba(100,100,100,0.6); 
         padding:20px; 
         font-size:12px;
@@ -49,21 +49,23 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
       
       .header{
         width:500px;
-        margin:20px auto 0 auto;
+        margin:40px auto 0 auto;
         display:block;
       }
       
       .header h1{
-        font-size:24px;
+        font-size:20px;
         padding:0px;
       }
       
       .header h1 span.a{
         font-style:italic;
+        font-size:22px;
       }
       
       .header h1 span.b{
-        font-size:16px;
+        font-size:14px;
+        font-style:bold;
       }
       
       .anim750{
@@ -74,7 +76,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
 	position: relative;
 	width: 180px;
 	height: 180px;
-	margin: 0 auto;
+	margin: -70px 0 0 0;
   
   backface-visibility: hidden;
   
