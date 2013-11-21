@@ -53,6 +53,7 @@ if($_REQUEST['meetup_name'] && $_REQUEST['fb_page_id']){
   .on("click", ".wepay-dialog-close a",function(e){
 	  //alert('holy shit!');
 	  $(".sync-once-button").hide();
+	  $(".wepay-widget-button").show();
 	})
 	.on("click", ".wepay-widget-button",function(e){
 		$(".sync-once-button").show();
