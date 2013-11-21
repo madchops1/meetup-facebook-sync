@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+include 'config.php';
 //die($_REQUEST['code']);
 
 // -- Step 2, Get access token from user

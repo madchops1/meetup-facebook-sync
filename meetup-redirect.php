@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'config.php';
 
 // -- Step 2, Get oauth access token from meetup
 $ch = curl_init();
