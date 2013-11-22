@@ -151,12 +151,12 @@ while($row = mysql_fetch_object($result)){
   
   
   if(isset($return->data)){
-    foreach($return->data as $result){
+    foreach($return->data as $facebook_result){
     
       // -- Get the Event Details
       $ch = curl_init();
       //Set the URL to work with
-      curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/'.$result->id.'?access_token='.$access_token.'');
+      curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/'.$facebook_result->id.'?access_token='.$facebook_object->access_token.'');
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       $detailed_return = curl_exec($ch);
       curl_close($ch);
