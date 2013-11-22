@@ -136,10 +136,10 @@ if(strstr($return, "access_token")){
     curl_close($ch);
     $return = json_decode($return);
     
-    //echo "<pre>";
-    //var_dump($return);
-    //echo "</pre>";
-    //die();
+    echo "<pre>";
+    var_dump($return);
+    echo "</pre>";
+    die();
     
     // -- Loop the fb event results and put into array
     if(isset($return->data)){
