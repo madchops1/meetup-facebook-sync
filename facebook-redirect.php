@@ -86,7 +86,7 @@ if(strstr($return, "access_token")){
         // -- Update Meetup
         $update = "  UPDATE meetup_pages
                      SET
-                     access_token='".$_SESSION['access_token']."',
+                     access_token='".$_SESSION['meetup_token']."',
                      refresh_token='".$_SESSION['refresh_token']."'
                      WHERE id='".$mobj->id."'";
         mysql_query($update);
