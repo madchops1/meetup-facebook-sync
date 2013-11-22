@@ -53,7 +53,7 @@
       }
       
       .form-inner-wrapper{
-        padding:115px 85px 0;
+        padding:95px 85px 0;
       }
             
       .content{
