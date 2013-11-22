@@ -31,7 +31,7 @@ class facebook_page {
 function format_meetups($meetups){
   // -- Format Meetups
   $i=0;
-  $formatted_meetups = array()
+  $formatted_meetups = array();
   foreach($meetups as $meetup_event){
     
     // -- Process Time
