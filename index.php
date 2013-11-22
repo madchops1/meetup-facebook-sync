@@ -66,7 +66,7 @@ include 'includes/header.php';
           </div><br>
           
           <div>
-            <input type='submit' class='sync-once-button' value='Sync My Meetup & Facebook' />
+            <input type='submit' class='sync-once-button' value='Sync My Meetup Group & Facebook Page Events' />
           </div>
           
           <!-- 
