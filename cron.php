@@ -93,16 +93,17 @@ while($row = mysql_fetch_object($result)){
       
       
       echo "**MEETUP ERRORZZZZZ**<br><Br>";
+      
       echo 'client_id='.$meetup_app_id.''.
            '&client_secret='.$meetup_app_secret.''.
            '&grant_type=refresh_token'.
            '&refresh_token='.$meetup_object->refresh_token.'<br><Br>';
       
       
-      echo "Meetup Response: <br>";
-      var_dump($return);
-      echo "<br><Br>";
-      echo "Decoded Meetup Response: <br>" . $meetup_response . "<br><br>";
+      //echo "Meetup Response: <br>";
+      //var_dump($return);
+      //echo "<br><Br>";
+      //echo "Decoded Meetup Response: <br>" . $meetup_response . "<br><br>";
       
     } // -- Else Couldn't Refresh
   } // -- Else Refresh Token
