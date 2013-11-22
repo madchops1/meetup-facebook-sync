@@ -169,6 +169,7 @@ while($row = mysql_fetch_object($result)){
   $formatted_meetups = format_meetups($meetups);
   $formatted_facebooks = format_facebooks($faceooks);
   
+  
   echo "Formatted Meetups:<br>";
   echo "<pre>";
   var_dump($formatted_meetups);
@@ -182,7 +183,8 @@ while($row = mysql_fetch_object($result)){
   // -- Begin Syncing here...
   // @todo...
   //sync_events($formatted_meetups,$formatted_facebooks,$meetup_group_object,$meetup_response->access_token);
- 
+  sync_events($formatted_meetups,$formatted_facebooks,$meetup_group_object->id,$meetup_object->name,$meetup_response->access_token,$facebook_object->name,$facebook_object->access_token);
+  
   
   
 }
