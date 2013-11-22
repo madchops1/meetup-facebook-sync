@@ -15,7 +15,7 @@ $ii = 0;
 while($row = mysql_fetch_object($result)){
   $ii++;
   echo "Rel ".$ii."<br>";
-  continue;
+  
   // -- Load The User Object
   $select = "  SELECT * FROM users WHERE id='".$row->uid."' LIMIT 1";
   $user_object = mysql_fetch_object(mysql_query($select));
@@ -45,7 +45,7 @@ while($row = mysql_fetch_object($result)){
   }
   // -- Get A New Token With the Refresh Token
   else {
-    var_dump($return);
+    //var_dump($return);
     
     // -- Refresh the old token
     $ch = curl_init();
@@ -89,9 +89,10 @@ while($row = mysql_fetch_object($result)){
     // -- Token no good, and could not refresh, error
     else {
       echo("**MEETUP ERROR**<br>");
-      
     } // -- Else Couldn't Refresh
   } // -- Else Refresh Token
+  
+  continue;
   
   // -- See if our facebook token is still good
   $ch = curl_init();
