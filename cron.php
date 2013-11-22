@@ -88,7 +88,7 @@ while($row = mysql_fetch_object($result)){
     
     // -- Token no good, and could not refresh, error
     else {
-      echo "**MEETUP ERROR**<br>";
+      echo "**MEETUP ERRORZZZZZ**<br>";
       echo 'client_id='.$meetup_app_id.''.
            '&client_secret='.$meetup_app_secret.''.
            '&grant_type=refresh_token'.
