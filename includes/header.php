@@ -41,15 +41,15 @@
       }
       
       .form-wrapper{
-        margin:0px auto; 
+        margin:-10px auto 0 auto; 
         width:500px; 
-        margin-top:0px; 
         background:#3B5998; 
         font-size:12px;
         border-radius:300px;
         color:#fff;
         height:500px;
-        
+        border:10px solid #fff;
+       
       }
       
       .form-inner-wrapper{
