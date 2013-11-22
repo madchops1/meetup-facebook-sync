@@ -107,7 +107,7 @@ include 'includes/header.php';
       <p>
       Once your pages are in sync, newly created events from your meetup page will be 
       automagically copied to your facebook page and vice-versa! So they will stay in sync in 
-      real-time forever. Our sync app runs every 10 minutes so if you don't 
+      real-time forever. The sync-ing application runs every 10 minutes so if you don't 
       see automated results immidiately please wait a few minutes.
       </p>
        
