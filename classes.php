@@ -73,14 +73,18 @@ function format_facebooks($facebooks){
     }
     // -- else Just date Y-m-d...
     else {
+      $time = $facebook_event->start_time;
       $new_time = round(strtotime($facebook_event->start_time) * 1000);
     }
-  
-    $formatted_facebooks[$i]->title = $facebook_event->name;
-    $formatted_facebooks[$i]->start = $new_time;
-    $formatted_facebooks[$i]->location = $facebook_event->location;
-    $formatted_facebooks[$i]->description = '';
-    $i++;
+    
+    // -- Make sure the date is not earlier than now...
+    if(strtotime($time) < strtotime("now")){
+      $formatted_facebooks[$i]->title = $facebook_event->name;
+      $formatted_facebooks[$i]->start = $new_time;
+      $formatted_facebooks[$i]->location = $facebook_event->location;
+      $formatted_facebooks[$i]->description = '';
+      $i++;
+    }
   }
   return $formatted_facebooks;
 }

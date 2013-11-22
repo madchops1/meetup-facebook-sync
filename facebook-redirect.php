@@ -269,17 +269,17 @@ if(strstr($return, "access_token")){
         $return = curl_exec($ch);
         curl_close($ch);
         
-        echo "Post FB to Meetup Response:<br>";
-        var_dump($return);echo "<br>";
+        //echo "Post FB to Meetup Response:<br>";
+        //var_dump($return);echo "<br>";
         
         
-        $output .= $facebook_event->title . " (".$facebook_event->start.") => Meetup";
-        $output .= '<br>group_id='.$_SESSION['meetup_group_object']->id.''.
+        //$output .= $facebook_event->title . " (".$facebook_event->start.") => Meetup";
+        /*$output .= '<br>group_id='.$_SESSION['meetup_group_object']->id.''.
                    '&group_urlname='.$_SESSION['meetup_name'].''.
                    '&name='.urlencode($facebook_event->title) .
                    '&time='.$facebook_event->start.''.
                    $venue.
-                   '&access_token='.$_SESSION['meetup_token'].'<br>';
+                   '&access_token='.$_SESSION['meetup_token'].'<br>';*/
       }
     } 
     
@@ -320,11 +320,11 @@ if(strstr($return, "access_token")){
     
     include 'includes/header.php';
     // -- Debriefing
-    echo "<div class='content'>";
+    echo "<div class='wrapper-content content'>";
     echo "<br><Br>SUCCESS!<br>";
     echo $synced_facebook_events . " facebook events synced to meetup.<br>";
     echo $synced_meetup_events . " meetup events synced to facebook.<br>";
-    echo $output;
+    //echo $output;
     echo "</div>";
     include 'includes/footer.php';
     
