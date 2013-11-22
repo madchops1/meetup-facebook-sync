@@ -89,6 +89,7 @@ while($row = mysql_fetch_object($result)){
     
     // -- Token no good, and could not refresh, error
     else {
+      echo "**MEETUP ERRORZZZZZ**<br><Br>";
       if(isset($meetup_resonse->error)){
         echo "<br>".$meetup_response->error."<Br>";
         /*echo "";
