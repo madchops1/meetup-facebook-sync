@@ -4,8 +4,8 @@ include 'classes.php';
 
 $meetups = array();
 $facebooks = array();
-$facebook_auth = 0;
-$meetup_auth = 0;
+$facebook_auth = 1;
+$meetup_auth = 1;
 //die(); // -- Prevent Running for now...
 
 // -- Loop Through Relationships
@@ -89,49 +89,19 @@ while($row = mysql_fetch_object($result)){
     
     // -- Token no good, and could not refresh, error
     else {
+      $meetup_auth = 0;
       echo "**MEETUP ERRORZZZZZ**<br>";
-      //if(isset($meetup_resonse->error)){
-        echo $meetup_response->error_description."<Br>";
-        /*echo "";
-        switch($meetup_response->error_description){
-          case "Unknown or previously used refresh_token":
-              echo  .= "<br><br>" 
-            break;  
-          
-          default:
-            
-            
-        }*/
-      //}
-      
+      echo $meetup_response->error_description."<Br>";
+    
       // -- Send Error Email...
       $to      = "";
       $subject = "";
       $message = "There was a authorization problem while automatically syncing {Meetup Name} and {Facebook Name}.
                   Go to the following url to fix reset the sync. http://mfbsync.com/?facebook_name={facebook id}&meetup_name={meetup name}";
       mail($to,$subject,$message);
-      
-      /*
-      echo "**MEETUP ERRORZZZZZ**<br><Br>";
-      
-      echo 'client_id='.$meetup_app_id.''.
-           '&client_secret='.$meetup_app_secret.''.
-           '&grant_type=refresh_token'.
-           '&refresh_token='.$meetup_object->refresh_token.'<br><Br>';
-      
-      
-      echo "Meetup Response: <br>";
-      var_dump($return);
-      echo "<br><Br>";
-      echo "Decoded Meetup Response: <br>";
-      var_dump($meetup_response);
-      echo "<br><br>";
-      */
+    
     } // -- Else Couldn't Refresh
   } // -- Else Refresh Token
-  
-  
-  
   
   
   // -- See if our facebook token is still good
@@ -146,8 +116,6 @@ while($row = mysql_fetch_object($result)){
   //var_dump($return);
   //echo "</pre><br>";
   //die();
-  
-  
   
   
   if(isset($return->data)){
@@ -166,12 +134,15 @@ while($row = mysql_fetch_object($result)){
     
     
   } else {
-    
+    $facebook_auth = 0;
     // error, could not use facebook token, must have user mannually do it again...
     //mail()
     // @todo...
-    echo("<br>**FACEBOOK ERROR**<br>");
-    
+    echo "<br>**FACEBOOK ERROR**<br>";
+    echo "Facebook /events response:<br><pre>";
+    var_dump($return);
+    echo "</pre><br>";
+    //die();
     
   }
   continue;
