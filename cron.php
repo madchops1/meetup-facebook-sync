@@ -145,6 +145,7 @@ while($row = mysql_fetch_object($result)){
   //var_dump($return);
   //echo "</pre><br>";
   //die();
+  continue;
   
   
   
@@ -173,7 +174,6 @@ while($row = mysql_fetch_object($result)){
     
   }
   
-  continue;
   
   // -- Get the Meetup Group's Details
   //init curl
