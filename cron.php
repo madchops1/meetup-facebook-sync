@@ -89,7 +89,8 @@ while($row = mysql_fetch_object($result)){
     // -- Token no good, and could not refresh, error
     else {
       echo("**MEETUP ERROR**<br>");
-      echo "Meetup Response: " . $meetup_response . "<br>";
+      echo "Meetup Response: <br>" . var_dump($return) . "<br>";
+      echo "Decoded Meetup Response: <br>" . $meetup_response . "<br>";
       
     } // -- Else Couldn't Refresh
   } // -- Else Refresh Token
@@ -104,9 +105,9 @@ while($row = mysql_fetch_object($result)){
   curl_close($ch);
   $return = json_decode($return);
   
-  echo "<br><br><br><pre>";
+  echo "Facebook /events response:<br><pre>";
   var_dump($return);
-  echo "</pre>";
+  echo "</pre><br>";
   //die();
   continue;
   
