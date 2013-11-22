@@ -89,9 +89,9 @@ while($row = mysql_fetch_object($result)){
     
     // -- Token no good, and could not refresh, error
     else {
-      echo "**MEETUP ERRORZZZZZ**<br><Br>";
+      echo "**MEETUP ERRORZZZZZ**<br>";
       //if(isset($meetup_resonse->error)){
-        echo "<br>".$meetup_response->error_description."<Br>";
+        echo $meetup_response->error_description."<Br>";
         /*echo "";
         switch($meetup_response->error_description){
           case "Unknown or previously used refresh_token":
@@ -146,7 +146,7 @@ while($row = mysql_fetch_object($result)){
   //var_dump($return);
   //echo "</pre><br>";
   //die();
-  continue;
+  
   
   
   
@@ -174,7 +174,7 @@ while($row = mysql_fetch_object($result)){
     
     
   }
-  
+  continue;
   
   // -- Get the Meetup Group's Details
   //init curl
