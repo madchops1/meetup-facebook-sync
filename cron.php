@@ -125,18 +125,18 @@ while($row = mysql_fetch_object($result)){
     // error, could not use facebook token, must have user mannually do it again...
     //mail()
     // @todo...
-    die("<br>**FACEBOOK ERROR**<br>");
+    echo("<br>**FACEBOOK ERROR**<br>");
     
     
   }
   
   // -- Beign Formatting here...
-  $formatted_meetups = format_meetups($meetups);
-  $formatted_facebooks = format_facebooks($faceooks);
+  //$formatted_meetups = format_meetups($meetups);
+  //$formatted_facebooks = format_facebooks($faceooks);
   
   // -- Begin Syncing here...
   // @todo...
-  sync_events($formatted_meetups,$formatted_facebooks);
+  //sync_events($formatted_meetups,$formatted_facebooks);
  
   
   
