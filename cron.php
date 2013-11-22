@@ -15,6 +15,7 @@ $ii = 0;
 while($row = mysql_fetch_object($result)){
   $ii++;
   echo "Rel ".$ii."<br>";
+  continue;
   // -- Load The User Object
   $select = "  SELECT * FROM users WHERE id='".$row->uid."' LIMIT 1";
   $user_object = mysql_fetch_object(mysql_query($select));
