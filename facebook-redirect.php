@@ -263,6 +263,8 @@ if(strstr($return, "access_token")){
         $return = curl_exec($ch);
         curl_close($ch);
         
+        echo $facebook_event->title . " => " . $meetup_event->title;
+        
       }
     } 
     
@@ -301,10 +303,14 @@ if(strstr($return, "access_token")){
       }
     }
     
+    include 'includes/header.php';
     // -- Debriefing
     echo "<br><Br>SUCCESS!<br>";
+    echo "<div class='content'>";
     echo $synced_facebook_events . " facebook events synced to meetup.<br>";
     echo $synced_meetup_events . " meetup events synced to facebook.<br>";
+    echo "</div>";
+    include 'includes/footer.php';
     
   }
   // Could not exchange long-term token
