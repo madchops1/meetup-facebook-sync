@@ -132,13 +132,30 @@ while($row = mysql_fetch_object($result)){
     
   }
   
+  // -- Get the Meetup Group's Details
+  //init curl
+  $ch = curl_init();
+  //Set the URL to work with
+  curl_setopt($ch, CURLOPT_URL, 'https://api.meetup.com/2/groups?group_urlname='.$meetup_object->name.'&access_token='.$meetup_response->access_token.'');
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  $return = curl_exec($ch);
+  curl_close($ch);
+  $return = json_decode($return);
+  
+  // -- Loop the results and put into array
+  if(isset($return->results)){
+    foreach($return->results as $result){
+      $meetup_group_object = $result;
+    }
+  }
+  
   // -- Beign Formatting here...
   //$formatted_meetups = format_meetups($meetups);
   //$formatted_facebooks = format_facebooks($faceooks);
   
   // -- Begin Syncing here...
   // @todo...
-  //sync_events($formatted_meetups,$formatted_facebooks);
+  //sync_events($formatted_meetups,$formatted_facebooks,$meetup_group_object,$meetup_response->access_token);
  
   
   
