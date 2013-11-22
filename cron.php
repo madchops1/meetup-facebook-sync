@@ -89,9 +89,28 @@ while($row = mysql_fetch_object($result)){
     
     // -- Token no good, and could not refresh, error
     else {
+      if(isset($meetup_resonse->error)){
+        echo "<br>".$meetup_response->error."<Br>";
+        /*echo "";
+        switch($meetup_response->error_description){
+          case "Unknown or previously used refresh_token":
+              echo  .= "<br><br>" 
+            break;  
+          
+          default:
+            
+            
+        }*/
+      }
       
+      // -- Send Error Email...
+      $to      = "";
+      $subject = "";
+      $message = "There was a authorization problem while automatically syncing {Meetup Name} and {Facebook Name}.
+                  Go to the following url to fix reset the sync. http://mfbsync.com/?facebook_name={facebook id}&meetup_name={meetup name}";
+      mail($to,$subject,$message);
       
-      
+      /*
       echo "**MEETUP ERRORZZZZZ**<br><Br>";
       
       echo 'client_id='.$meetup_app_id.''.
@@ -106,12 +125,12 @@ while($row = mysql_fetch_object($result)){
       echo "Decoded Meetup Response: <br>";
       var_dump($meetup_response);
       echo "<br><br>";
-      
+      */
     } // -- Else Couldn't Refresh
   } // -- Else Refresh Token
   
   
-  continue;
+  
   
   
   // -- See if our facebook token is still good
@@ -122,9 +141,9 @@ while($row = mysql_fetch_object($result)){
   curl_close($ch);
   $return = json_decode($return);
   
-  echo "Facebook /events response:<br><pre>";
-  var_dump($return);
-  echo "</pre><br>";
+  //echo "Facebook /events response:<br><pre>";
+  //var_dump($return);
+  //echo "</pre><br>";
   //die();
   
   
@@ -153,6 +172,8 @@ while($row = mysql_fetch_object($result)){
     
     
   }
+  
+  continue;
   
   // -- Get the Meetup Group's Details
   //init curl
