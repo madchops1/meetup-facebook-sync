@@ -58,6 +58,7 @@ while($row = mysql_fetch_object($result)){
     $return = curl_exec($ch);
     curl_close($ch);
     $meetup_response = json_decode($return);
+    
     if(isset($meetup_response->token_type) && $meetup_response->token_type == "bearer"){
       
       // -- Update the Database, access token and refresh token in the database
@@ -88,12 +89,19 @@ while($row = mysql_fetch_object($result)){
     
     // -- Token no good, and could not refresh, error
     else {
+      
+      
+      
       echo "**MEETUP ERRORZZZZZ**<br><Br>";
       echo 'client_id='.$meetup_app_id.''.
            '&client_secret='.$meetup_app_secret.''.
            '&grant_type=refresh_token'.
            '&refresh_token='.$meetup_object->refresh_token.'<br><Br>';
-      echo "Meetup Response: <br>" . var_dump($return) . "<br><Br>";
+      
+      
+      echo "Meetup Response: <br>";
+      var_dump($return);
+      echo "<br><Br>";
       echo "Decoded Meetup Response: <br>" . $meetup_response . "<br><br>";
       
     } // -- Else Couldn't Refresh
