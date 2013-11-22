@@ -100,10 +100,12 @@ while($row = mysql_fetch_object($result)){
            '&refresh_token='.$meetup_object->refresh_token.'<br><Br>';
       
       
-      //echo "Meetup Response: <br>";
-      //var_dump($return);
-      //echo "<br><Br>";
-      //echo "Decoded Meetup Response: <br>" . $meetup_response . "<br><br>";
+      echo "Meetup Response: <br>";
+      var_dump($return);
+      echo "<br><Br>";
+      echo "Decoded Meetup Response: <br>";
+      var_dump($meetup_response);
+      echo "<br><br>";
       
     } // -- Else Couldn't Refresh
   } // -- Else Refresh Token
