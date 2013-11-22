@@ -161,6 +161,7 @@ if(strstr($return, "access_token")){
     
     
     // -- Success, format events
+    // ...format facebooks
     $i=0;
     foreach($_SESSION['fb_events'] AS $facebook_event){
       $_SESSION['formatted_fb_events'][$i]->title = $facebook_event->name;
@@ -268,7 +269,12 @@ if(strstr($return, "access_token")){
         
         
         $output .= $facebook_event->title . " (".$facebook_event->start.") => Meetup";
-        
+        $output .= '<br>group_id='.$_SESSION['meetup_group_object']->id.''.
+                   '&group_urlname='.$_SESSION['meetup_name'].''.
+                   '&name='.urlencode($facebook_event->title) .
+                   '&time='.$facebook_event->start.''.
+                   $venue.
+                   '&access_token='.$_SESSION['meetup_token'].'<br>';
       }
     } 
     
