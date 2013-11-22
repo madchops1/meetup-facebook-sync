@@ -139,7 +139,7 @@ if(strstr($return, "access_token")){
     echo "<pre>";
     var_dump($return);
     echo "</pre>";
-    die();
+    //die();
     
     // -- Loop the fb event results and put into array
     if(isset($return->data)){
@@ -263,6 +263,9 @@ if(strstr($return, "access_token")){
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $return = curl_exec($ch);
         curl_close($ch);
+        
+        var_dump($return);echo "<br>";
+        
         
         $output .= $facebook_event->title . " (".$facebook_event->start.") => Meetup";
         
