@@ -88,13 +88,13 @@ while($row = mysql_fetch_object($result)){
     
     // -- Token no good, and could not refresh, error
     else {
-      echo "**MEETUP ERRORZZZZZ**<br>";
+      echo "**MEETUP ERRORZZZZZ**<br><Br>";
       echo 'client_id='.$meetup_app_id.''.
            '&client_secret='.$meetup_app_secret.''.
            '&grant_type=refresh_token'.
-           '&refresh_token='.$meetup_object->refresh_token.'';
-      echo "Meetup Response: <br>" . var_dump($return) . "<br>";
-      echo "Decoded Meetup Response: <br>" . $meetup_response . "<br>";
+           '&refresh_token='.$meetup_object->refresh_token.'<br><Br>';
+      echo "Meetup Response: <br>" . var_dump($return) . "<br><Br>";
+      echo "Decoded Meetup Response: <br>" . $meetup_response . "<br><br>";
       
     } // -- Else Couldn't Refresh
   } // -- Else Refresh Token
