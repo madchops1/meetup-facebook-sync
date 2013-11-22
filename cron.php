@@ -14,7 +14,7 @@ $result = mysql_query($select);
 $ii = 0;
 while($row = mysql_fetch_object($result)){
   $ii++;
-  echo "Rel ".$ii."<br>";
+  echo "<Br><br>Relationship ".$ii."<br>";
   
   // -- Load The User Object
   $select = "  SELECT * FROM users WHERE id='".$row->uid."' LIMIT 1";
@@ -88,6 +88,7 @@ while($row = mysql_fetch_object($result)){
     
     // -- Token no good, and could not refresh, error
     else {
+      echo "Meetup Response: " . $meetup_response;
       echo("**MEETUP ERROR**<br>");
     } // -- Else Couldn't Refresh
   } // -- Else Refresh Token
