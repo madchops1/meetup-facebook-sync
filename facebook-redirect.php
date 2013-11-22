@@ -214,6 +214,7 @@ if(strstr($return, "access_token")){
       // -- Loop throuhg each meetup event
       $fb_event_synced = 0;
       foreach($_SESSION['formatted_meetups'] as $meetup_event){
+        echo $meetup_event->title." == ".$facebook_event->title."<br>";
         if($meetup_event->title == $facebook_event->title){
           $fb_event_synced = 1;
           break;
