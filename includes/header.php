@@ -44,7 +44,7 @@
         margin:0px auto; 
         width:500px; 
         margin-top:0px; 
-        background:#333; 
+        background:#3B5998; 
         font-size:12px;
         border-radius:300px;
         color:#fff;
