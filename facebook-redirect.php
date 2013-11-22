@@ -44,7 +44,7 @@ if(strstr($return, "access_token")){
   //var_dump($return);
   //die();
   
-  // -- If there is a long-term token
+  // -- If there is a long-term token, we need that long term token ;)
   if(strstr($return, "access_token")){
     $returnArray = explode("&",$return);
     $tokenArray = explode("=",$returnArray[0]);
@@ -68,9 +68,8 @@ if(strstr($return, "access_token")){
       $_SESSION['user_object'] = $user_result;
     }
     
-    
-    
-    // -- Loop Through this users relationships and see if he has this one already
+    // -- The Page Relationships are per user.
+    // -- Loop Through this users relationships and see if this one already exists for this user
     $rel_exists = 0;
     $rel_select = "  SELECT * FROM fb_meetup_rel WHERE uid='".$_SESSION['user_object']->id."'";
     $rel_result = mysql_query($rel_select);
@@ -80,18 +79,28 @@ if(strstr($return, "access_token")){
       $fobj = mysql_fetch_object(mysql_query($fselect));
       $mselect = "  SELECT * FROM meetup_pages WHERE id='".$rel->mid."' LIMIT 1";
       $mobj = mysql_fetch_object(mysql_query($mselect));
-      
+      // -- If Meetup and facegook pages exist
       if($mobj->name == $_SESSION['meetup_name'] && $fobj->name == $_SESSION['fb_page_id']){
         $rel_exists = 1;
+
+        // -- Update Meetup
+        $update = "  UPDATE meetup_pages
+                     SET
+                     access_token='".$_SESSION['access_token']."',
+                     refresh_token='".$_SESSION['refresh_token']."'
+                     WHERE id='".$mobj->id."'";
+        mysql_query($update);
+        
+        // -- Update Facebook
+        $update = "  UPDATE facebook_pages 
+                     SET 
+                     access_token='".$access_token."' 
+                     WHERE id='".$fobj->id."'";
+        
       }
     }
     
-    /* TESTING
-    echo "User<br>";
-    var_dump($_SESSION['user_object']);
-    echo "<br><br>Rel Exists: ".$rel_exists."";
-    */
-    
+    // If the relationship doesn't exist then insert it into the database
     if($rel_exists == 0){
       // -- Insert FB Page
       $query = "  INSERT INTO `fb_pages` 
@@ -117,7 +126,7 @@ if(strstr($return, "access_token")){
                   mid='".$mid."',
                   uid='".$_SESSION['user_object']->id."'";
       mysql_query($query);
-    }
+    } 
       
     // -- Get Facebook Page Events
     $ch = curl_init();
@@ -160,38 +169,18 @@ if(strstr($return, "access_token")){
       // If there is a time in the facebook time
       if(strstr($facebook_event->start_time,"T")){
         
-        
-        
         $date_time_array = explode("T",$facebook_event->start_time);
         $date = $date_time_array[0];
         $time = $date_time_array[1];
         $his = substr($time, 0,8);
         $zone = substr($time, -5);
-        //$time = substr($time, 8);
         
-        
-        // -- Y-m-d => d/m/Y
-        //$datetime = DateTime::createFromFormat('Y-m-d', $date);
-        //$formatdate = $datetime->format('dd/mm/YY');
-        //echo $datetime->format('Y-m-d');
         $formatdate = date("m/d/Y", strtotime($date));
-        
-        //dd "/" M "/" YY : HH ":" II ":" SS space tzcorrection
-        //"10/Oct/2000:13:55:36 -0700"
         $new_time = round(strtotime( $formatdate . " " . $his . " " . $zone . "") * 1000);
-              
-        //echo "Time: ".$his."<br>";
-        //echo "Zone: ".$zone."<br>";
-        //echo "Format: ".$formatdate."<br>";
-        //echo "New: ".$new_time."<br>";
-        //die($facebook_event->start_time);
         
       } 
-      
       // -- else Just date Y-m-d...
       else {
-        //$datetime = DateTime::createFromFormat('Y-m-d', $date);
-        //$formatdate = $datetime->format('YY/mm/dd');
         $new_time = round(strtotime($facebook_event->start_time) * 1000);
       }
       
@@ -207,8 +196,6 @@ if(strstr($return, "access_token")){
       $_SESSION['formatted_meetups'][$i]->title = $meetup_event->name;
       
       // -- Process Time
-      //Date-only (e.g., '2012-07-04'): events that have a date but no specific time yet.
-      //Precise-time (e.g., '2012-07-04T19:00:00-0700'): events that start at a particular point in time, in a specific offset from UTC. This is the way new Facebook events keep track of time, and allows users to view events in different timezones.
       $meetup_event->time = date("Y-m-dXXXXh:i:s",($meetup_event->time/1000))."-0000";
       $meetup_event->time = str_replace("XXXX","T",$meetup_event->time);
       $_SESSION['formatted_meetups'][$i]->start = $meetup_event->time;
@@ -217,21 +204,8 @@ if(strstr($return, "access_token")){
       $i++;
     }
     
-    /*
-    echo "<table cellpadding='10'><tr><td><pre>";
-    var_dump($_SESSION['fb_events']);
-    echo "</pre></td><td><pre>";
-    var_dump($_SESSION['meetups']);
-    echo "</pre></td></tr></table><br><br>";
-    */
-    
-    /*
-    echo "<table cellpadding='10'><tr><td><pre>";
-    var_dump($_SESSION['formatted_fb_events']);
-    echo "</pre></td><td><pre>";
-    var_dump($_SESSION['formatted_meetups']);
-    echo "</pre></td></tr></table>";
-    */
+    // -- SYNC here...
+    // ... Start with facebook...
     
     $synced_facebook_events=0;
     // -- Loop the Facebook events and add them to meetup if necessary
@@ -323,8 +297,6 @@ if(strstr($return, "access_token")){
         $return = curl_exec($ch);
         curl_close($ch);
         
-        //echo "<br>RETURN:<br>";
-        //var_dump($return);
         
       }
     }
