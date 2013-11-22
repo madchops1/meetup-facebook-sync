@@ -265,6 +265,7 @@ if(strstr($return, "access_token")){
         $return = curl_exec($ch);
         curl_close($ch);
         
+        echo "Post FB to Meetup Response:<br>";
         var_dump($return);echo "<br>";
         
         
