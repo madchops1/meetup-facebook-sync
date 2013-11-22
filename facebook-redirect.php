@@ -136,9 +136,9 @@ if(strstr($return, "access_token")){
     curl_close($ch);
     $return = json_decode($return);
     
-    echo "<pre>";
-    var_dump($return);
-    echo "</pre>";
+    //echo "<pre>";
+    //var_dump($return);
+    //echo "</pre>";
     //die();
     
     // -- Loop the fb event results and put into array
@@ -154,6 +154,7 @@ if(strstr($return, "access_token")){
         curl_close($ch);
         $detailed_return = json_decode($detailed_return);
         
+        // -- Make sure event is not in the past
         
         $_SESSION['fb_events'][] = $detailed_return;
       }
@@ -164,7 +165,6 @@ if(strstr($return, "access_token")){
     // ...format facebooks
     $i=0;
     foreach($_SESSION['fb_events'] AS $facebook_event){
-      $_SESSION['formatted_fb_events'][$i]->title = $facebook_event->name;
       
       // -- Start Time Processing
       // If there is a time in the facebook time
@@ -182,13 +182,17 @@ if(strstr($return, "access_token")){
       } 
       // -- else Just date Y-m-d...
       else {
+        $time = $facebook_event->start_time;
         $new_time = round(strtotime($facebook_event->start_time) * 1000);
       }
-      
-      $_SESSION['formatted_fb_events'][$i]->start = $new_time;
-      $_SESSION['formatted_fb_events'][$i]->location = $facebook_event->location;
-      $_SESSION['formatted_fb_events'][$i]->description = '';
-      $i++;
+      // -- Make sure the date is not earlier than now...
+      if(strtotime($time) < strtotime("now")){
+        $_SESSION['formatted_fb_events'][$i]->title = $facebook_event->name;
+        $_SESSION['formatted_fb_events'][$i]->start = $new_time;
+        $_SESSION['formatted_fb_events'][$i]->location = $facebook_event->location;
+        $_SESSION['formatted_fb_events'][$i]->description = '';
+        $i++;
+      }
     }
     
     // -- Format Meetups
