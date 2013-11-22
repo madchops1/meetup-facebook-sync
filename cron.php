@@ -90,8 +90,8 @@ while($row = mysql_fetch_object($result)){
     // -- Token no good, and could not refresh, error
     else {
       echo "**MEETUP ERRORZZZZZ**<br><Br>";
-      if(isset($meetup_resonse->error)){
-        echo "<br>".$meetup_response->error."<Br>";
+      //if(isset($meetup_resonse->error)){
+        echo "<br>".$meetup_response->error_description."<Br>";
         /*echo "";
         switch($meetup_response->error_description){
           case "Unknown or previously used refresh_token":
@@ -102,7 +102,7 @@ while($row = mysql_fetch_object($result)){
             
             
         }*/
-      }
+      //}
       
       // -- Send Error Email...
       $to      = "";
