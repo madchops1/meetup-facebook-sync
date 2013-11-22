@@ -99,7 +99,7 @@ while($row = mysql_fetch_object($result)){
       $message = "There was a authorization problem while automatically syncing {Meetup Name} and {Facebook Name}.
                   Go to the following url to fix reset the sync. http://mfbsync.com/?facebook_name={facebook id}&meetup_name={meetup name}";
       mail($to,$subject,$message);
-    
+      continue;
     } // -- Else Couldn't Refresh
   } // -- Else Refresh Token
   
@@ -143,6 +143,7 @@ while($row = mysql_fetch_object($result)){
     var_dump($return);
     echo "</pre><br>";
     //die();
+    continue;
     
   }
   
