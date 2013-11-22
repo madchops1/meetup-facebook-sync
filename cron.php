@@ -97,9 +97,9 @@ while($row = mysql_fetch_object($result)){
   curl_close($ch);
   $return = json_decode($return);
   
-  //echo "<pre>";
-  //var_dump($return);
-  //echo "</pre>";
+  echo "<br><br><br><pre>";
+  var_dump($return);
+  echo "</pre>";
   //die();
   
   if(isset($return->data)){
