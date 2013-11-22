@@ -263,7 +263,7 @@ if(strstr($return, "access_token")){
         $return = curl_exec($ch);
         curl_close($ch);
         
-        echo $facebook_event->title . " => " . $meetup_event->title;
+        $output .= $facebook_event->title . " (".$facebook_event->start.") => Meetup";
         
       }
     } 
@@ -305,10 +305,11 @@ if(strstr($return, "access_token")){
     
     include 'includes/header.php';
     // -- Debriefing
-    echo "<br><Br>SUCCESS!<br>";
     echo "<div class='content'>";
+    echo "<br><Br>SUCCESS!<br>";
     echo $synced_facebook_events . " facebook events synced to meetup.<br>";
     echo $synced_meetup_events . " meetup events synced to facebook.<br>";
+    echo $output;
     echo "</div>";
     include 'includes/footer.php';
     
