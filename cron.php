@@ -145,7 +145,7 @@ while($row = mysql_fetch_object($result)){
     //die();
     
   }
-  continue;
+  
   
   // -- Get the Meetup Group's Details
   //init curl
@@ -165,8 +165,18 @@ while($row = mysql_fetch_object($result)){
   }
   
   // -- Beign Formatting here...
-  //$formatted_meetups = format_meetups($meetups);
-  //$formatted_facebooks = format_facebooks($faceooks);
+  $formatted_meetups = format_meetups($meetups);
+  $formatted_facebooks = format_facebooks($faceooks);
+  
+  echo "Formatted Meetups:<br>";
+  echo "<pre>";
+  var_dump($formatted_meetups);
+  echo "</pre>";
+  
+  echo "Formatted Facebooks:<br>";
+  echo "<pre>";
+  var_dump($formatted_facebooks);
+  echo "</pre>";
   
   // -- Begin Syncing here...
   // @todo...
