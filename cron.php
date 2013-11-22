@@ -88,12 +88,13 @@ while($row = mysql_fetch_object($result)){
     
     // -- Token no good, and could not refresh, error
     else {
-      echo "Meetup Response: " . $meetup_response;
       echo("**MEETUP ERROR**<br>");
+      echo "Meetup Response: " . $meetup_response . "<br>";
+      
     } // -- Else Couldn't Refresh
   } // -- Else Refresh Token
   
-  continue;
+  
   
   // -- See if our facebook token is still good
   $ch = curl_init();
@@ -107,6 +108,8 @@ while($row = mysql_fetch_object($result)){
   var_dump($return);
   echo "</pre>";
   //die();
+  continue;
+  
   
   if(isset($return->data)){
     foreach($return->data as $result){
