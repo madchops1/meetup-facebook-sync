@@ -11,8 +11,10 @@ $meetup_auth = 0;
 // -- Loop Through Relationships
 $select = "  SELECT * FROM fb_meetup_rel";
 $result = mysql_query($select);
+$ii = 0;
 while($row = mysql_fetch_object($result)){
-  
+  $ii++;
+  echo "Rel ".$ii."<br>";
   // -- Load The User Object
   $select = "  SELECT * FROM users WHERE id='".$row->uid."' LIMIT 1";
   $user_object = mysql_fetch_object(mysql_query($select));
@@ -85,7 +87,8 @@ while($row = mysql_fetch_object($result)){
     
     // -- Token no good, and could not refresh, error
     else {
-      die("<br>**MEETUP ERROR**<br>");
+      echo("**MEETUP ERROR**<br>");
+      
     } // -- Else Couldn't Refresh
   } // -- Else Refresh Token
   
