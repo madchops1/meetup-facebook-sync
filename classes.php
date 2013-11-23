@@ -78,7 +78,7 @@ function format_facebooks($facebooks){
     }
     
     // -- Make sure the date is not earlier than now...
-    if(strtotime($time) < strtotime("now")){
+    if(strtotime($time) > strtotime("now")){
       $formatted_facebooks[$i]->title = $facebook_event->name;
       $formatted_facebooks[$i]->start = $new_time;
       $formatted_facebooks[$i]->location = $facebook_event->location;

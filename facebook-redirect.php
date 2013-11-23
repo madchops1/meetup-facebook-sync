@@ -185,8 +185,9 @@ if(strstr($return, "access_token")){
         $time = $facebook_event->start_time;
         $new_time = round(strtotime($facebook_event->start_time) * 1000);
       }
+      
       // -- Make sure the date is not earlier than now...
-      if(strtotime($time) < strtotime("now")){
+      if(strtotime($time) > strtotime("now")){
         $_SESSION['formatted_fb_events'][$i]->title = $facebook_event->name;
         $_SESSION['formatted_fb_events'][$i]->start = $new_time;
         $_SESSION['formatted_fb_events'][$i]->location = $facebook_event->location;
