@@ -189,6 +189,9 @@ if(strstr($return, "access_token")){
       //echo "Time: ".$time." ".strtotime($time)."<br>";
       
       // -- Make sure the date is not earlier than now...
+      echo "<br>".$facebook_event->name."<br>";
+      echo strtotime($time)." - ".strtotime("now");
+      
       if(strtotime($time) > strtotime("now")){
         $_SESSION['formatted_fb_events'][$i]->title = $facebook_event->name;
         $_SESSION['formatted_fb_events'][$i]->start = $new_time;
