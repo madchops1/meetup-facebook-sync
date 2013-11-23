@@ -186,14 +186,16 @@ if(strstr($return, "access_token")){
         $new_time = round(strtotime($facebook_event->start_time) * 1000);
       }
       
+      echo "Time: ".$time." ".strtotime($time)."<br>";
+      
       // -- Make sure the date is not earlier than now...
-      if(strtotime($time) > strtotime("now")){
+      //if(strtotime($time) > strtotime("now")){
         $_SESSION['formatted_fb_events'][$i]->title = $facebook_event->name;
         $_SESSION['formatted_fb_events'][$i]->start = $new_time;
         $_SESSION['formatted_fb_events'][$i]->location = $facebook_event->location;
         $_SESSION['formatted_fb_events'][$i]->description = '';
         $i++;
-      }
+      //}
     }
     
     // -- Format Meetups

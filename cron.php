@@ -1,7 +1,7 @@
 <?php  
 include 'config.php';
 include 'classes.php';
-
+die();
 $meetups = array();
 $facebooks = array();
 $facebook_auth = 1;
