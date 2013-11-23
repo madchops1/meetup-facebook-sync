@@ -212,9 +212,18 @@ if(strstr($return, "access_token")){
       $i++;
     }
     
+    
+    echo "<br><br>MEETUPS<br><pre>";
+    var_dump($_SESSION['formatted_meetups']);
+    echo "</pre>";
+    
+    echo "<br><br>FACEBOOKS<br><pre>";
+    var_dump($_SESSION['formatted_facebooks']);
+    echo "</pre>";
+    
+    
     // -- SYNC here...
     // ... Start with facebook...
-    
     $synced_facebook_events=0;
     // -- Loop the Facebook events and add them to meetup if necessary
     foreach($_SESSION['formatted_fb_events'] as $facebook_event){
