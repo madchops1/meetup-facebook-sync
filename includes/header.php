@@ -96,10 +96,11 @@
       }
       
       .footer{
-        font-size:10px;
-        width:500px;
-        margin:0px auto;
-        color:#fff;
+        color: #FFFFFF;
+        font-size: 11px;
+        margin: 0 auto;
+        text-align: center;
+        width: 500px;
       }
       
       .footer a{
@@ -109,7 +110,7 @@
       .big-footer{
         background-color:#333;
         width:100%;
-        padding:20px 0px;
+        padding:60px 0px;
         position:relative;
         margin-top:40px; 
       }
