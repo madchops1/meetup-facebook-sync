@@ -218,7 +218,7 @@ if(strstr($return, "access_token")){
     echo "</pre>";
     
     echo "<br><br>FACEBOOKS<br><pre>";
-    var_dump($_SESSION['formatted_facebooks']);
+    var_dump($_SESSION['formatted_fb_events']);
     echo "</pre>";
     
     
