@@ -55,6 +55,17 @@
       .form-inner-wrapper{
         padding:95px 85px 0;
       }
+        
+      .wrapper-content{
+        color: #83B34C;
+        font-family: georgia;
+        font-size: 30px;
+        font-style: italic;
+        font-weight: lighter;
+        margin: 140px auto !important;
+        text-align: center;
+        width: 500px;
+      }
             
       .content{
         width:500px;
